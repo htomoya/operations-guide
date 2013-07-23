@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,17 +26,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1412
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1421
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:71
 msgid "horizon"
 msgstr "horizon"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1709
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1718
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:63
 msgid "keystone"
 msgstr "keystone"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2616
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2625
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:385
 msgid "StackTach"
 msgstr "StackTach"
@@ -156,11 +156,11 @@ msgstr "ログの読み方"
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:105
 msgid ""
 "OpenStack services use the standard logging levels, at increasing severity: "
-"DEBUG, INFO, AUDIT, WARNING, ERROR, CRITICAL, TRACE. That is, messages only "
-"appear in the logs if they are more \"severe\" than the particular log level "
-"with DEBUG allowing all log statements through. For example, TRACE is logged "
-"only if the software has a stack trace, while INFO is logged for every "
-"message including those that are only for information."
+"DEBUG, INFO, AUDIT, WARNING, ERROR, CRITICAL, and TRACE. That is, messages "
+"only appear in the logs if they are more \"severe\" than the particular log "
+"level with DEBUG allowing all log statements through. For example, TRACE is "
+"logged only if the software has a stack trace, while INFO is logged for "
+"every message including those that are only for information."
 msgstr ""
 "OpenStack サービスは標準のロギングレベルを利用しています。重要度のレベルは次"
 "の通りです(重要度の低い順): DEBUG、INFO、AUDIT、WARNING、ERROR、CRTICAL、"
@@ -179,11 +179,11 @@ msgstr ""
 msgid ""
 "Keystone is handled a little differently. To modify the logging level, edit "
 "the <code>/etc/keystone/logging.conf</code> file and look at the "
-"<code>logger_root and handler_file</code> sections."
+"<code>logger_root</code> and <code>handler_file</code> sections."
 msgstr ""
 "Keystoneは少し異なる動作をします。ロギングレベルを変更するためには、<code>/"
-"etc/keystone/logging.conf</code>を編集し、 <code>logger_root </code>と<code> "
-"handler_file</code> を修正する必要があります。"
+"etc/keystone/logging.conf</code>を編集し、 <code>logger_root</code> と "
+"<code>handler_file</code> を修正する必要があります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:121
 msgid ""
@@ -273,8 +273,8 @@ msgid ""
 "Here the ID associated with the instance is <code>faf7ded8-4a46-413b-b113-"
 "f19590746ffe</code>. If you search for this string on the cloud controller "
 "in the <code>/var/log/nova-*.log</code> files, it appears in <code>nova-api."
-"log</code>, <code>nova-scheduler.log</code>. If you search for this on the "
-"compute nodes in <code>/var/log/nova-*.log</code>, it appears <code>nova-"
+"log</code>, and <code>nova-scheduler.log</code>. If you search for this on "
+"the compute nodes in <code>/var/log/nova-*.log</code>, it appears <code>nova-"
 "network.log</code> and <code>nova-compute.log</code>. If no ERROR or "
 "CRITICAL messages appear, the most recent log entry that reports this may "
 "provide a hint about what has gone wrong."

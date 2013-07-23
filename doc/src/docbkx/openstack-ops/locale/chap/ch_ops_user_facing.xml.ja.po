@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2583
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2592
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:857
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:878
 msgid "snapshot"
@@ -84,8 +84,8 @@ msgstr ""
 "OpenStack を見ていきます。ユーザーが必要とすることを理解する手助けになりま"
 "す。また、トラブルのチケットを受け取ったときに、ユーザーの問題またはサービス"
 "の問題のどちらかを判断する手助けになります。取り扱っている主な概念はイメー"
-"ジ、フレーバー、セキュリティグループ、ブロックストレージおよびインス"
-"タンスです。"
+"ジ、フレーバー、セキュリティグループ、ブロックストレージおよびインスタンスで"
+"す。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:29
 msgid ""

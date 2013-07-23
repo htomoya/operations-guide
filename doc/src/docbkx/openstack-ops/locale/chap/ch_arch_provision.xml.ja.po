@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -169,8 +169,7 @@ msgstr ""
 "<emphasis role=\"bold\">オプション 1:</emphasis> 次の図に示すように、すべての"
 "ハードディスクをまったく同じようにパーティショニングします。 <placeholder-1/>"
 
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
+#. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: doc/src/docbkx/openstack-ops/src/ch_arch_provision.xml:95
 msgid ""

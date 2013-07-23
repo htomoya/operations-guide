@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -1412,11 +1412,11 @@ msgstr ""
 "ラッシュしました。単に D-Bus を開始するだけで、一連のプログラムがうまく動くよ"
 "うになり、すぐに全部が元に戻り動作状態になりました。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:977
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978
 msgid "Upgrades"
 msgstr "アップグレード"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:979
 msgid ""
 "With the exception of Object Storage, an upgrade from one version of "
 "OpenStack to another is a great deal of work."
@@ -1424,29 +1424,29 @@ msgstr ""
 "Object Storage 以外では、OpenStack をあるバージョンから別のバージョンへアップ"
 "グレードするには、非常に労力を伴います。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:981
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:982
 msgid "The upgrade process generally follows these steps:"
 msgstr "一般的に、アップグレード作業は以下の手順で行います:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:985
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:986
 msgid "Read the release notes and documentation."
 msgstr "リリースノートとドキュメントを読みます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:989
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:990
 msgid "Find incompatibilities between different versions."
 msgstr "異なるバージョン間の非互換性を確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:993
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:994
 msgid "Plan an upgrade schedule and complete it in order on a test cluster."
 msgstr ""
 "アップグレードスケジュールの計画を立て、テストクラスターで手順どおりにアップ"
 "グレードができることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:997
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:998
 msgid "Run the upgrade."
 msgstr "アップグレードを実行します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1000
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1001
 msgid ""
 "You can perform an upgrade while user instances run. However, this strategy "
 "can be dangerous. Don't forget appropriate notice to your users, and backups."
@@ -1455,62 +1455,62 @@ msgstr ""
 "す。しかしながら、この方法は危険です。ユーザーに対する適切な通知を忘れないよ"
 "うにしてください。そして、バックアップも忘れないでください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1003
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1004
 msgid "The general order that seems to be most successful is:"
 msgstr "最も成功すると考えられる一般的な順番は次のとおりです:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1007
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1008
 msgid "Upgrade the OpenStack Identity service (keystone)."
 msgstr "OpenStack Identity サービス (keystone) をアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1011
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1012
 msgid "Upgrade the OpenStack Image service (glance)."
 msgstr "OpenStack Image サービス (glance) をアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1015
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1016
 msgid "Upgrade all OpenStack Compute (nova) services."
 msgstr "すべての OpenStack Compute (nova) サービスをアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1019
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1020
 msgid "Upgrade all OpenStack Block Storage (cinder) services."
 msgstr ""
 "すべての OpenStack Block Storage (cinder) サービスをアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1023
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1024
 msgid "For each of these steps, complete the following sub-steps:"
 msgstr "これらのステップそれぞれに対して、以下のサブステップを完了します:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1027
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1028
 msgid "Stop services."
 msgstr "サービスを停止します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1030
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1031
 msgid "Create a backup of configuration files and databases."
 msgstr "設定ファイルとデータベースのバックアップを作成します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1034
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1035
 msgid "Upgrade the packages using your distribution's package manager."
 msgstr ""
 "ディストリビューションのパッケージマネージャーを用いてパッケージをアップグ"
 "レードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1038
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1039
 msgid "Update the configuration files according to the release notes."
 msgstr "リリースノートに従って設定ファイルを更新します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1042
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1043
 msgid "Apply the database upgrades."
 msgstr "データベースのアップグレードを適用します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1045
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1046
 msgid "Restart the services."
 msgstr "サービスを再起動します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1048
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1049
 msgid "Verify that everything is running."
 msgstr "すべてが正しく動作することを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1051
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1052
 msgid ""
 "Probably the most important step of all is the pre-upgrade testing. "
 "Especially if you are upgrading immediately after release of a new version, "
@@ -1526,7 +1526,7 @@ msgstr ""
 "な環境の場合には、リリース版の開発やテストに参加することで、あなたのユース"
 "ケースでのバグを確実に修正することもできるでしょう。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1060
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1061
 msgid ""
 "To complete an upgrade of OpenStack Compute while keeping instances running, "
 "you should be able to use live migration to move machines around while "
@@ -1539,3 +1539,42 @@ msgstr ""
 "ている間はインスタンスを他のマシンに移動し、終わったら元のマシンに戻す方法を"
 "取ることができます。しかしながら、データベースの更新を確実に行うことが非常に"
 "重要です。さもないと、クラスターが一貫性のない状態になってしまいます。"
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072
+#, fuzzy
+#| msgid "instance"
+msgid "Uninstalling"
+msgstr "インスタンス"
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1073
+msgid ""
+"While we'd always recommend using your automated deployment system to re-"
+"install systems from scratch, sometimes you do need to remove OpenStack from "
+"a system the hard way. Here's how:"
+msgstr ""
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078
+#, fuzzy
+#| msgid "To remove the package:"
+msgid "Remove all packages"
+msgstr "パッケージを削除するには、"
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079
+msgid "Remove reamining files"
+msgstr ""
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1080
+#, fuzzy
+#| msgid "container database"
+msgid "Remove databases"
+msgstr "コンテナデータベース"
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1082
+msgid ""
+"These steps depend on your underlying distribution, but in general you "
+"should be looking for 'purge' commands in your package manager, like "
+"<literal> aptitude purge ~c $package</literal>. Following this, you can look "
+"for orphaned files in the directories referenced throughout this guide. For "
+"uninstalling the database properly, refer to the manual appropriate for the "
+"product in use."
+msgstr ""

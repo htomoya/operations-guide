@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,14 +26,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:486
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:890
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1457
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1672
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1696
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1788
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1889
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2799
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:495
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:899
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1466
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1681
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1705
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1797
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1898
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:2808
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:217
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:228
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:229
@@ -47,7 +47,7 @@ msgstr ""
 msgid " "
 msgstr " "
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:589
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:598
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:238
 msgid "Ceph"
 msgstr "Ceph"
@@ -172,7 +172,8 @@ msgstr "容量の指定"
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:79
 msgid ""
 "Administrator configures size settings, known as <emphasis>flavors</emphasis>"
-msgstr "管理者がサイズ設定（<emphasis>フレーバー</emphasis>とも呼ばれる）を用意する"
+msgstr ""
+"管理者がサイズ設定（<emphasis>フレーバー</emphasis>とも呼ばれる）を用意する"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_storage.xml:82
 msgid "Specified by user in initial request"

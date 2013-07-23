@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1363
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1372
 #: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:292
 msgid "GlusterFS"
 msgstr "GlusterFS"
@@ -505,10 +505,10 @@ msgstr "RAM 割当比: 1.5"
 #: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:322
 msgid ""
 "The default CPU allocation ratio of 16 means that the scheduler allocates up "
-"to 16 virtual cores on a node per physical cores. For example, if a physical "
-"node has 12 cores, and each virtual machine instance uses 4 virtual cores, "
-"the scheduler allocates up to 192 virtual cores to instances (such as, 48 "
-"instances, in the case where each instance has 4 virtual cores)."
+"to 16 virtual cores on a node per physical core. For example, if a physical "
+"node has 12 cores, the scheduler allocates up to 192 virtual cores to "
+"instances (such as, 48 instances, in the case where each instance has 4 "
+"virtual cores)."
 msgstr ""
 "CPU 割当比のデフォルト値 16 は、スケジューラーが1つのノードで物理コア1つあた"
 "り最大16個の仮想コアを割り当てることを意味します。例えば、ある物理ノードのコ"
@@ -516,7 +516,7 @@ msgstr ""
 "ことになります (例えば、各インスタンスの仮想コアが4個の場合には、48インスタン"
 "ス割り当てられます)。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:329
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:328
 msgid ""
 "Similarly, the default RAM allocation ratio of 1.5 means that the scheduler "
 "allocates instances to a physical node as long as the total amount of RAM "
@@ -527,7 +527,7 @@ msgstr ""
 "総量がその物理ノードで利用できるメモリ量の1.5倍未満であれば、スケジューラーが"
 "その物理ノードにインスタンスを割り当てることを意味します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:334
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:333
 msgid ""
 "For example, if a physical node has 48 GB of RAM, the scheduler allocates "
 "instances to that node until the sum of the RAM associated with the "
@@ -539,7 +539,7 @@ msgstr ""
 "スタンスを割り振ることになります (例えば、各インスタンスのメモリが 8GB であれ"
 "ば、9 インスタンス割り当てられます)。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:339
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:338
 msgid ""
 "You must select the appropriate CPU and RAM allocation ratio for your "
 "particular use case."
@@ -547,11 +547,11 @@ msgstr ""
 "あなた自身のユースケースに合わせて、適切な CPU と RAM の割当比を選択しなけれ"
 "ばなりません。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:343
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:342
 msgid "Logging"
 msgstr "ロギング"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:344
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:343
 msgid ""
 "Logging is detailed more fully in <xref linkend=\"logging\"/>. However it is "
 "an important design consideration to take into account before commencing "
@@ -560,7 +560,7 @@ msgstr ""
 "ロギングについては <xref linkend=\"logging\"/> で詳しく説明しています。しか"
 "し、ロギングはクラウドの運用を開始前に考慮しておくべき重要な検討事項です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:348
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:347
 msgid ""
 "OpenStack produces a great deal of useful logging information, however, in "
 "order for it to be useful for operations purposes you should consider having "
@@ -571,12 +571,12 @@ msgstr ""
 "活用するためには、ログを集積するログサーバーや、(logstash といった) ログ解析/"
 "分析システムを用意することを検討すべきでしょう。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:355
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:354
 #: doc/src/docbkx/openstack-ops/src/ch_ops_resources.xml:49
 msgid "Networking"
 msgstr "ネットワーク"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:356
+#: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:355
 msgid ""
 "Networking in OpenStack is a complex, multi-faceted challenge. See <xref "
 "linkend=\"network_design\"/>."

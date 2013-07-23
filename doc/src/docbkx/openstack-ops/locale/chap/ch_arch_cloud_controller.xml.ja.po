@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,10 +26,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:319
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:328
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:267
 msgid "Application Programming Interface (API)"
 msgstr "Application Programming Interface (API)"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:0
+msgid "translator-credits"
+msgstr ""
+"Akihiro MOTOKI <amotoki@gmail.com>, 2013\n"
+"Akira Yoshiyama <akirayoshiyama@gmail.com>, 2013\n"
+"Masanori Itoh <masanori.itoh@gmail.com>, 2013\n"
+"masayukig <masayuki.igawa@gmail.com>, 2013\n"
+"*はたらくpokotan* <>, 2013\n"
+"Tsutomu TAKEKAWA <takekawa@gmail.com>, 2013\n"
+"doki701 <tokidokidokidoki@gmail.com>, 2013\n"
+"Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013\n"
+"tmak <t.makabe@gmail.com>, 2013"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:16
 msgid "Cloud Controller Design"
@@ -577,14 +591,10 @@ msgstr ""
 "ルシステムを使用します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:364
-msgid ""
-"S3. Allows you to fetch images from Amazon S3. You cannot write images by "
-"using this mode."
-msgstr ""
-"S3。Amazon S3 からイメージを取得することができます。このモードでは、イメージ"
-"の書き込みはできません。"
+msgid "S3. Allows you to fetch images from Amazon S3."
+msgstr "S3。Amazon S3 からイメージを取得することができます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:368
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:367
 msgid ""
 "HTTP. Allows you to fetch images from a web server. You cannot write images "
 "by using this mode."
@@ -592,24 +602,30 @@ msgstr ""
 "HTTP。Webサーバーからイメージを取得することができます。このモードでは、イメー"
 "ジの書き込みはできません。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:373
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:372
+#, fuzzy
+#| msgid ""
+#| "If you have an OpenStack Object Storage service, we recommend using this "
+#| "as a scalable place to store your images. Failing that, a file system "
+#| "with sufficient performance is the only real option - unless you do not "
+#| "need the ability to upload new images through OpenStack."
 msgid ""
 "If you have an OpenStack Object Storage service, we recommend using this as "
-"a scalable place to store your images. Failing that, a file system with "
-"sufficient performance is the only real option - unless you do not need the "
-"ability to upload new images through OpenStack."
+"a scalable place to store your images. You can also use a file system with "
+"sufficient performance or Amazon S3 - unless you do not need the ability to "
+"upload new images through OpenStack."
 msgstr ""
 "OpenStack Object Storage サービスがあるのであれば、イメージを保存するスケーラ"
 "ブルな場所として利用することを推奨します。そうでない場合は、OpenStack を通じ"
 "て新しいイメージをアップロードする必要がない場合を除いて、充分な性能のある"
 "ファイルシステムが唯一の選択肢です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:381
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:378
 #: doc/src/docbkx/openstack-ops/src/ch_ops_customize.xml:1001
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:382
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:379
 msgid ""
 "The OpenStack Dashboard is implemented as a Python web application that runs "
 "in <glossterm>Apache</glossterm><code>httpd</code>. Therefore, you may treat "
@@ -622,11 +638,11 @@ msgstr ""
 "にアクセスできるという条件の下、他の任意の Web アプリケーションと同じように取"
 "り扱うことができます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:391
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:388
 msgid "Authentication and Authorization"
 msgstr "認証と認可"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:392
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:389
 msgid ""
 "The concepts supporting OpenStack's authentication and authorization are "
 "derived from well understood and widely used systems of a similar nature. "
@@ -638,7 +654,7 @@ msgstr ""
 "を持ち、１つ以上のグループ(プロジェクトまたはテナントして知られています)のメ"
 "ンバとなることができます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:398
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:395
 msgid ""
 "For example, a cloud administrator might be able to list all instances in "
 "the cloud, whereas a user can only see those in their current group. "
@@ -650,7 +666,7 @@ msgstr ""
 "ることができるでしょう。利用可能なコア数、ディスク容量等のリソースのクォータ"
 "はプロジェクトに対して関連づけられています。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:403
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:400
 msgid ""
 "The OpenStack Identity Service (Keystone) is the point that provides the "
 "authentication decisions and user attribute information, which is then used "
@@ -663,7 +679,7 @@ msgstr ""
 "は policy.json で記述されます。これらを設定するための情報については、<xref "
 "linkend=\"projects_users\"/> を参照してください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:410
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:407
 msgid ""
 "The Identity Service supports different plugins for back-end authentication "
 "decisions, and storing information. These range from pure storage choices to "
@@ -673,23 +689,23 @@ msgstr ""
 "ポートしています。これらの選択肢は、純粋なストレージの選択から、外部認証シス"
 "テムにわたり、現在は以下が含まれています。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:416
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:413
 msgid "In-memory Key-Value Store"
 msgstr "インメモリキーバリューストア"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:419
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:416
 msgid "SQL database"
 msgstr "SQL データベース"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:422
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:419
 msgid "PAM"
 msgstr "PAM"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:425
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:422
 msgid "LDAP"
 msgstr "LDAP"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:428
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:425
 msgid ""
 "Many deployments use the SQL database, however LDAP is also a popular choice "
 "for those with existing authentication infrastructure that needs to be "
@@ -698,11 +714,11 @@ msgstr ""
 "多くのデプロイメントで SQL データベースが使われていますが、既存の認証インフラ"
 "とインテグレーションする必要のある環境では、LDAP もポピュラーな選択肢です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:435
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:432
 msgid "Network Considerations"
 msgstr "ネットワークの考慮事項"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:436
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:433
 msgid ""
 "Because the cloud controller handles so many different services, it must be "
 "able to handle the amount of traffic that hits it. For example, if you "
@@ -715,7 +731,7 @@ msgstr ""
 "OpenStack Image サービスを乗せることにした場合、そのクラウドコントローラーは"
 "許容可能な速度でイメージを転送できなければなりません。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:442
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:439
 msgid ""
 "As another example, if you choose to use single-host networking where the "
 "cloud controller is the network gateway for all instances, then the Cloud "
@@ -727,7 +743,7 @@ msgstr ""
 "ローラーは外部インターネットとあなたのクラウドの間でやりとりされるすべてのト"
 "ラフィックを支えられなければなりません。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:447
+#: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:444
 msgid ""
 "We recommend that you use a fast NIC, such as 10 GB. You can also choose to "
 "use two 10 GB NICs and bond them together. While you might not be able to "

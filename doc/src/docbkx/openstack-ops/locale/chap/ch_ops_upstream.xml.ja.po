@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,38 +26,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:365
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:374
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:584
 msgid "Austin"
 msgstr "Austin"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:439
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:448
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:574
 msgid "Bexar"
 msgstr "Bexar"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:501
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:510
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:564
 msgid "Cactus"
 msgstr "Cactus"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:983
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:992
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:544
 msgid "Diablo"
 msgstr "Diablo"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1138
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1147
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:506
 msgid "Essex"
 msgstr "Essex"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1317
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1326
 #: doc/src/docbkx/openstack-ops/src/ch_arch_example.xml:33
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:467
 msgid "Folsom"
 msgstr "Folsom"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1370
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1379
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:456
 msgid "Grizzly"
 msgstr "Grizzly"
@@ -619,8 +619,7 @@ msgstr ""
 "リースに向けての新機能の追加が凍結されます。String Freeze は、ソースコード内"
 "の文字列の変更が凍結されることを意味します。"
 
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
+#. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:401
 msgid ""

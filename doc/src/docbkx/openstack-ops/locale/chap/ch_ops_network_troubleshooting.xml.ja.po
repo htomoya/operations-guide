@@ -15,8 +15,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-05-08 15:45+0800\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1663
+#: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:1672
 #: doc/src/docbkx/openstack-ops/src/ch_ops_network_troubleshooting.xml:205
 msgid "iptables"
 msgstr "iptables"
@@ -73,7 +73,7 @@ msgstr ""
 #: doc/src/docbkx/openstack-ops/src/ch_ops_network_troubleshooting.xml:40
 msgid ""
 "You can safely ignore the state of virbr0, which is a default bridge created "
-"by QEMU and not used by OpenStack."
+"by libvirt and not used by OpenStack."
 msgstr ""
 "virbr0の状態は無視することができます。なぜならそれはlibvirtが作成するデフォル"
 "トのブリッジで、OpenStackからは使われないからです。"
@@ -90,8 +90,7 @@ msgstr ""
 "もしあなたがインスタンスにログインしており、外部ホスト、例えば google.comに"
 "pingした場合、そのpingパケットは下記経路を通ります。"
 
-#. When image changes, this message will be marked fuzzy or untranslated for
-#. you.
+#. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: doc/src/docbkx/openstack-ops/src/ch_ops_network_troubleshooting.xml:53
 msgid ""
