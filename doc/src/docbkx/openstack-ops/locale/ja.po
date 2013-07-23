@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
 "POT-Creation-Date: 2013-07-22 19:40+0900\n"
-"PO-Revision-Date: 2013-06-21 08:33+0000\n"
+"PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -986,12 +986,6 @@ msgstr ""
 "がないが、我々は次回のサミットの議論に期待している。"
 
 #: doc/src/docbkx/openstack-ops/src/app_crypt.xml:51(para)
-#, fuzzy
-#| msgid ""
-#| "MTU is maximum transmission unit. It specifies the maximum number of "
-#| "bytes that the interface accepts for each packet. If two interfaces have "
-#| "two different MTUs, bytes might get chopped off and weird things happen "
-#| "-- such as random session lockups.<placeholder-1/>"
 msgid ""
 "MTU is maximum transmission unit. It specifies the maximum number of bytes "
 "that the interface accepts for each packet. If two interfaces have two "
@@ -1001,7 +995,7 @@ msgstr ""
 "MTU とは最大転送単位（Maximum Transmission Unit）である。これは、各パケットに"
 "対してそのインターフェースが受け取る最大バイト数を指定する。もし２つのイン"
 "ターフェースが異なる MTU であった場合、バイトは尻切れトンボとなって変なことが"
-"起こり始める…例えばセッションのランダムなロックアップとか。<placeholder-1/>"
+"起こり始める…例えばセッションのランダムなロックアップとか。"
 
 #: doc/src/docbkx/openstack-ops/src/app_crypt.xml:57(para)
 msgid ""
@@ -4732,10 +4726,8 @@ msgstr ""
 
 #. ... continue adding more revisions here as you change this document using the markup shown below...
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:50(date)
-#, fuzzy
-#| msgid "2013-03-11"
 msgid "2013-05-13"
-msgstr "2013-03-11"
+msgstr "2013-05-13"
 
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:500(title)
 msgid "C"
@@ -5929,14 +5921,8 @@ msgstr ""
 "ルシステムを使用します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:364(para)
-#, fuzzy
-#| msgid ""
-#| "S3. Allows you to fetch images from Amazon S3. You cannot write images by "
-#| "using this mode."
 msgid "S3. Allows you to fetch images from Amazon S3."
-msgstr ""
-"S3。Amazon S3 からイメージを取得することができます。このモードでは、イメージ"
-"の書き込みはできません。"
+msgstr "S3。Amazon S3 からイメージを取得することができます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:367(para)
 msgid ""
@@ -6546,14 +6532,6 @@ msgstr ""
 "試験を行い、どちらがユースケースに適しているかを判断することをお薦めします。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_compute_nodes.xml:322(para)
-#, fuzzy
-#| msgid ""
-#| "The default CPU allocation ratio of 16 means that the scheduler allocates "
-#| "up to 16 virtual cores on a node per physical cores. For example, if a "
-#| "physical node has 12 cores, and each virtual machine instance uses 4 "
-#| "virtual cores, the scheduler allocates up to 192 virtual cores to "
-#| "instances (such as, 48 instances, in the case where each instance has 4 "
-#| "virtual cores)."
 msgid ""
 "The default CPU allocation ratio of 16 means that the scheduler allocates up "
 "to 16 virtual cores on a node per physical core. For example, if a physical "
@@ -8786,14 +8764,6 @@ msgid "Capacity Planning"
 msgstr "キャパシティプランニング"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:456(para)
-#, fuzzy
-#| msgid ""
-#| "OpenStack is designed to increase in size in a straightforward manner. "
-#| "Taking into account the considerations in the <emphasis role=\"bold"
-#| "\">Scalability</emphasis> chapter — particularly on the sizing of the "
-#| "cloud controller, it should be possible to procure additional compute or "
-#| "object storage nodes as needed. New nodes do not need to be the same "
-#| "specification, or even vendor, as existing nodes."
 msgid ""
 "OpenStack is designed to increase in size in a straightforward manner. "
 "Taking into account the considerations in the <emphasis role=\"bold"
@@ -8868,7 +8838,7 @@ msgstr "512 MB"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:53(para)
 msgid "1 GB"
-msgstr ""
+msgstr "1 GB"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:54(para)
 msgid "0 GB"
@@ -11618,15 +11588,6 @@ msgid "How to Read the Logs"
 msgstr "ログの読み方"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:105(para)
-#, fuzzy
-#| msgid ""
-#| "OpenStack services use the standard logging levels, at increasing "
-#| "severity: DEBUG, INFO, AUDIT, WARNING, ERROR, CRITICAL, TRACE. That is, "
-#| "messages only appear in the logs if they are more \"severe\" than the "
-#| "particular log level with DEBUG allowing all log statements through. For "
-#| "example, TRACE is logged only if the software has a stack trace, while "
-#| "INFO is logged for every message including those that are only for "
-#| "information."
 msgid ""
 "OpenStack services use the standard logging levels, at increasing severity: "
 "DEBUG, INFO, AUDIT, WARNING, ERROR, CRITICAL, and TRACE. That is, messages "
@@ -11649,18 +11610,13 @@ msgstr ""
 "conf</code> を編集します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:116(para)
-#, fuzzy
-#| msgid ""
-#| "Keystone is handled a little differently. To modify the logging level, "
-#| "edit the <code>/etc/keystone/logging.conf</code> file and look at the "
-#| "<code>logger_root and handler_file</code> sections."
 msgid ""
 "Keystone is handled a little differently. To modify the logging level, edit "
 "the <code>/etc/keystone/logging.conf</code> file and look at the "
 "<code>logger_root</code> and <code>handler_file</code> sections."
 msgstr ""
 "Keystoneは少し異なる動作をします。ロギングレベルを変更するためには、<code>/"
-"etc/keystone/logging.conf</code>を編集し、 <code>logger_root </code>と<code> "
+"etc/keystone/logging.conf</code>を編集し、 <code>logger_root</code> と <code>"
 "handler_file</code> を修正する必要があります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:121(para)
@@ -11761,16 +11717,6 @@ msgid "Consider the following example:"
 msgstr "次のような例を考えてみましょう。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:193(para)
-#, fuzzy
-#| msgid ""
-#| "Here the ID associated with the instance is <code>faf7ded8-4a46-413b-b113-"
-#| "f19590746ffe</code>. If you search for this string on the cloud "
-#| "controller in the <code>/var/log/nova-*.log</code> files, it appears in "
-#| "<code>nova-api.log</code>, <code>nova-scheduler.log</code>. If you search "
-#| "for this on the compute nodes in <code>/var/log/nova-*.log</code>, it "
-#| "appears <code>nova-network.log</code> and <code>nova-compute.log</code>. "
-#| "If no ERROR or CRITICAL messages appear, the most recent log entry that "
-#| "reports this may provide a hint about what has gone wrong."
 msgid ""
 "Here the ID associated with the instance is <code>faf7ded8-4a46-413b-b113-"
 "f19590746ffe</code>. If you search for this string on the cloud controller "
@@ -14585,10 +14531,6 @@ msgstr ""
 "きます。もしDNSが動いていれば、ping結果の先頭行はこうなるはずです。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_network_troubleshooting.xml:40(para)
-#, fuzzy
-#| msgid ""
-#| "You can safely ignore the state of virbr0, which is a default bridge "
-#| "created by QEMU and not used by OpenStack."
 msgid ""
 "You can safely ignore the state of virbr0, which is a default bridge created "
 "by libvirt and not used by OpenStack."
@@ -14780,10 +14722,6 @@ msgid "quota_fixed_ips=-1"
 msgstr "quota_fixed_ips=-1"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_projects_users.xml:147(para)
-#, fuzzy
-#| msgid ""
-#| "(IntOpt) number of floating ips allowed per project (this should be at "
-#| "least the number of instances allowed). -1 is unlimited"
 msgid ""
 "(IntOpt) number of fixed ips allowed per project (this should be at least "
 "the number of instances allowed). -1 is unlimited"
@@ -15370,17 +15308,6 @@ msgstr ""
 "create</code> で、ルールは <code>admin_or_owner</code> です。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_projects_users.xml:508(para)
-#, fuzzy
-#| msgid ""
-#| "Policies are triggered by an OpenStack policy engine whenever one of them "
-#| "matches an OpenStack API operation or a specific attribute being used in "
-#| "a given operation. For instance, the engine tests the <code>create:"
-#| "compute</code> policy every time a user sends a <code>POST /v2/{tenant_id}"
-#| "servers</code> request to the OpenStack Compute API server. Policies can "
-#| "be also related to specific <glossterm>API extension</glossterm>s. For "
-#| "instance, if a user needs an extension like <code>compute_extension:"
-#| "rescue</code> the attributes defined by the provider extensions trigger "
-#| "the rule test for that operation."
 msgid ""
 "Policies are triggered by an OpenStack policy engine whenever one of them "
 "matches an OpenStack API operation or a specific attribute being used in a "
