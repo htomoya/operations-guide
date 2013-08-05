@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
-"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"POT-Creation-Date: 2013-08-05 13:08+0900\n"
 "PO-Revision-Date: 2013-07-23 22:55+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
@@ -7476,10 +7476,17 @@ msgid "VLANs"
 msgstr "VLAN"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_network_design.xml:227(para)
+#, fuzzy
+#| msgid ""
+#| "VLAN configuration can be as simple or as complicated as desired. The use "
+#| "of VLANs has the benefit of allowing each project its own subnet and "
+#| "broadcast segregation from other projects. to allow OpenStack to "
+#| "efficiently use VLANs, you must allocate a VLAN range (one for each "
+#| "project) and turn each compute node switch port into a trunk port."
 msgid ""
 "VLAN configuration can be as simple or as complicated as desired. The use of "
 "VLANs has the benefit of allowing each project its own subnet and broadcast "
-"segregation from other projects. to allow OpenStack to efficiently use "
+"segregation from other projects. To allow OpenStack to efficiently use "
 "VLANs, you must allocate a VLAN range (one for each project) and turn each "
 "compute node switch port into a trunk port."
 msgstr ""
@@ -8828,7 +8835,7 @@ msgstr "m1.tiny"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:51(para)
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:58(para)
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:522(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:521(para)
 msgid "1"
 msgstr "1"
 
@@ -8868,7 +8875,7 @@ msgid "m1.medium"
 msgstr "m1.medium"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:65(para)
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:529(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:528(para)
 msgid "2"
 msgstr "2"
 
@@ -8885,7 +8892,7 @@ msgid "m1.large"
 msgstr "m1.large"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:72(para)
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:543(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:542(para)
 msgid "4"
 msgstr "4"
 
@@ -11616,8 +11623,8 @@ msgid ""
 "<code>logger_root</code> and <code>handler_file</code> sections."
 msgstr ""
 "Keystoneは少し異なる動作をします。ロギングレベルを変更するためには、<code>/"
-"etc/keystone/logging.conf</code>を編集し、 <code>logger_root</code> と <code>"
-"handler_file</code> を修正する必要があります。"
+"etc/keystone/logging.conf</code>を編集し、 <code>logger_root</code> と "
+"<code>handler_file</code> を修正する必要があります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_log_monitor.xml:121(para)
 msgid ""
@@ -12501,7 +12508,7 @@ msgstr "ブロックストレージ ノード"
 msgid "cinder: <code>/var/log/cinder/cinder-volume.log</code>"
 msgstr "cinder: <code>/var/log/cinder/cinder-volume.log</code>"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1001(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1000(para)
 msgid ""
 "You can perform an upgrade while user instances run. However, this strategy "
 "can be dangerous. Don't forget appropriate notice to your users, and backups."
@@ -12510,11 +12517,11 @@ msgstr ""
 "す。しかしながら、この方法は危険です。ユーザーに対する適切な通知を忘れないよ"
 "うにしてください。そして、バックアップも忘れないでください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1004(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1003(para)
 msgid "The general order that seems to be most successful is:"
 msgstr "最も成功すると考えられる一般的な順番は次のとおりです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1008(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1007(para)
 msgid "Upgrade the OpenStack Identity service (keystone)."
 msgstr "OpenStack Identity サービス (keystone) をアップグレードします。"
 
@@ -12530,54 +12537,54 @@ msgstr ""
 "かるリブートから戻ってきた場合や、コンピュートノードのnova サービスを再起動す"
 "る必要がある場合です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1012(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1011(para)
 msgid "Upgrade the OpenStack Image service (glance)."
 msgstr "OpenStack Image サービス (glance) をアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1016(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1015(para)
 msgid "Upgrade all OpenStack Compute (nova) services."
 msgstr "すべての OpenStack Compute (nova) サービスをアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1020(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1019(para)
 msgid "Upgrade all OpenStack Block Storage (cinder) services."
 msgstr ""
 "すべての OpenStack Block Storage (cinder) サービスをアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1024(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1023(para)
 msgid "For each of these steps, complete the following sub-steps:"
 msgstr "これらのステップそれぞれに対して、以下のサブステップを完了します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1028(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1027(para)
 msgid "Stop services."
 msgstr "サービスを停止します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1031(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1030(para)
 msgid "Create a backup of configuration files and databases."
 msgstr "設定ファイルとデータベースのバックアップを作成します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1035(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1034(para)
 msgid "Upgrade the packages using your distribution's package manager."
 msgstr ""
 "ディストリビューションのパッケージマネージャーを用いてパッケージをアップグ"
 "レードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1039(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1038(para)
 msgid "Update the configuration files according to the release notes."
 msgstr "リリースノートに従って設定ファイルを更新します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1043(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1042(para)
 msgid "Apply the database upgrades."
 msgstr "データベースのアップグレードを適用します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1046(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1045(para)
 msgid "Restart the services."
 msgstr "サービスを再起動します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1049(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1048(para)
 msgid "Verify that everything is running."
 msgstr "すべてが正しく動作することを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1052(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1051(para)
 msgid ""
 "Probably the most important step of all is the pre-upgrade testing. "
 "Especially if you are upgrading immediately after release of a new version, "
@@ -12593,7 +12600,7 @@ msgstr ""
 "な環境の場合には、リリース版の開発やテストに参加することで、あなたのユース"
 "ケースでのバグを確実に修正することもできるでしょう。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1061(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1060(para)
 msgid ""
 "To complete an upgrade of OpenStack Compute while keeping instances running, "
 "you should be able to use live migration to move machines around while "
@@ -12607,36 +12614,36 @@ msgstr ""
 "取ることができます。しかしながら、データベースの更新を確実に行うことが非常に"
 "重要です。さもないと、クラスターが一貫性のない状態になってしまいます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1071(title)
 #, fuzzy
 #| msgid "instance"
 msgid "Uninstalling"
 msgstr "インスタンス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1073(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072(para)
 msgid ""
 "While we'd always recommend using your automated deployment system to re-"
 "install systems from scratch, sometimes you do need to remove OpenStack from "
 "a system the hard way. Here's how:"
 msgstr ""
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1077(para)
 #, fuzzy
 #| msgid "To remove the package:"
 msgid "Remove all packages"
 msgstr "パッケージを削除するには、"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078(para)
 msgid "Remove reamining files"
 msgstr ""
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1080(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079(para)
 #, fuzzy
 #| msgid "container database"
 msgid "Remove databases"
 msgstr "コンテナデータベース"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1082(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1081(para)
 msgid ""
 "These steps depend on your underlying distribution, but in general you "
 "should be looking for 'purge' commands in your package manager, like "
@@ -12778,7 +12785,8 @@ msgstr ""
 msgid ""
 "After you have the list, you can use the nova command to start each instance:"
 msgstr ""
-"一覧を取得した後、各インスタンスを起動するために nova コマンドを使用できます。"
+"一覧を取得した後、各インスタンスを起動するために nova コマンドを使用できま"
+"す。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:18(para)
 msgid ""
@@ -13055,18 +13063,22 @@ msgstr ""
 "再起動します。起動する際にインスタンスの XML ファイルを再生成します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:389(para)
+#, fuzzy
+#| msgid ""
+#| "Finally, re-attach volumes using the same method described in <emphasis "
+#| "role=\"bold\">After a compute node Reboots</emphasis>."
 msgid ""
 "Finally, re-attach volumes using the same method described in <emphasis role="
-"\"bold\">After a compute node Reboots</emphasis>."
+"\"bold\">Volumes</emphasis>."
 msgstr ""
 "最後に、<emphasis role=\"bold\">コンピュートノードの再起動後</emphasis> に説"
 "明されているのと同じ方法を用いて、ボリュームを再接続します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:395(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:394(title)
 msgid "/var/lib/nova/instances"
 msgstr "/var/lib/nova/instances"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:396(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:395(para)
 msgid ""
 "It's worth mentioning this directory in the context of failed compute nodes. "
 "This directory contains the libvirt KVM file-based disk images for the "
@@ -13094,12 +13106,12 @@ msgstr ""
 "ジプロキシが、いかなる時間帯においても、サービスが利用できないことによる影響"
 "が大きければ、高可用性オプションについて検討する必要があります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:403(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:402(para)
 msgid "<code>/var/lib/nova/instances</code> contains two types of directories."
 msgstr ""
 "<code>/var/lib/nova/instances</code> には 2 種類のディレクトリがあります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:406(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:405(para)
 msgid ""
 "The first is the <code>_base</code> directory. This contains all of the "
 "cached base images from glance for each unique image that has been launched "
@@ -13111,7 +13123,7 @@ msgstr ""
 "メージのキャッシュが置かれます。<code>_20</code> (または他の番号) で終わる"
 "ファイルは一時ディスクのベースイメージです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:412(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:411(para)
 msgid ""
 "The other directories are titled <code>instance-xxxxxxxx</code>. These "
 "directories correspond to instances running on that compute node. The files "
@@ -13125,7 +13137,7 @@ msgstr ""
 "と関連があります。これらは基本的に、元々の <code>_base</code> ディレクトリか"
 "らの変更点のみ含む、差分ベースのファイルです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:420(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:419(para)
 msgid ""
 "All files and directories in <code>/var/lib/nova/instances</code> are "
 "uniquely named. The files in _base are uniquely titled for the glance image "
@@ -13145,7 +13157,7 @@ msgstr ""
 "ジを与えることもありません。同じ一意な名前を持つものは本質的に同じファイルだ"
 "からです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:432(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:431(para)
 msgid ""
 "Although this method is not documented or supported, you can use it when "
 "your compute node is permanently offline but you have instances locally "
@@ -13155,11 +13167,11 @@ msgstr ""
 "ピュートノードが完全にオフラインになってしまったが、インスタンスがローカルに"
 "保存されているときに、この方法を使用できます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:440(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:439(title)
 msgid "Storage Node Failures and Maintenance"
 msgstr "ストレージノードの故障とメンテナンス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:441(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:440(para)
 msgid ""
 "Due to the Object Storage's high redundancy, dealing with object storage "
 "node issues is a lot easier than dealing with compute node issues."
@@ -13168,11 +13180,11 @@ msgstr ""
 "する問題を処理することは、コンピュートノードに関する問題を処理するよりも簡単"
 "です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:446(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:445(title)
 msgid "Rebooting a Storage Node"
 msgstr "ストレージノードの再起動"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:447(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:446(para)
 msgid ""
 "If a storage node requires a reboot, simply reboot it. Requests for data "
 "hosted on that node are redirected to other copies while the server is "
@@ -13182,11 +13194,11 @@ msgstr ""
 "れているデータに対する要求は、サーバーが再起動している間、他のコピーに転送さ"
 "れます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:454(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:453(title)
 msgid "Shutting Down a Storage Node"
 msgstr "ストレージノードのシャットダウン"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:455(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:454(para)
 msgid ""
 "If you need to shut down a storage node for an extended period of time (1+ "
 "days), consider removing the node from the storage ring. For example:"
@@ -13194,17 +13206,17 @@ msgstr ""
 "ストレージノードを少し長い間 (1 日以上) シャットダウンする必要があれば、ノー"
 "ドをストレージリングから削除することを検討します。例:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:464(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:463(para)
 msgid "Next, redistribute the ring files to the other nodes:"
 msgstr "次に、ring ファイルを他のノードに再配布します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:470(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:469(para)
 msgid ""
 "These actions effectively take the storage node out of the storage cluster."
 msgstr ""
 "これらの操作はストレージノードをストレージクラスターから効率的に外せます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:472(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:471(para)
 msgid ""
 "When the node is able to rejoin the cluster, just add it back to the ring. "
 "The exact syntax to add a node to your Swift cluster using <code>swift-ring-"
@@ -13216,11 +13228,11 @@ msgstr ""
 "するための構文は、元々クラスターを作成したときに使用した元々のオプションに強"
 "く依存します。作成時に使用したコマンドをもう一度見てください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:482(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:481(title)
 msgid "Replacing a Swift Disk"
 msgstr "Swift ディスクの交換"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:483(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:482(para)
 msgid ""
 "If a hard drive fails in a Object Storage node, replacing it is relatively "
 "easy. This assumes that your Object Storage environment is configured "
@@ -13232,7 +13244,7 @@ msgstr ""
 "タが Object Storage 環境内の他のディスクにも複製されていることを前提にしてい"
 "ます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:489(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:488(para)
 msgid "This example assumes that <code>/dev/sdb</code> has failed."
 msgstr "この例では、<code>/dev/sdb</code> が故障したと仮定します。"
 
@@ -13240,27 +13252,27 @@ msgstr "この例では、<code>/dev/sdb</code> が故障したと仮定しま�
 msgid "Rebooting a cloud controller or Storage Proxy"
 msgstr "クラウドコントローラーとストレージプロキシの再起動"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:491(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:490(para)
 msgid "First, unmount the disk:"
 msgstr "まず、ディスクをアンマウントします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:493(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:492(para)
 msgid ""
 "Next, physically remove the disk from the server and replace it with a "
 "working disk."
 msgstr ""
 "次に、ディスクを物理的にサーバーから取り外し、正常なディスクと入れ替えます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:495(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:494(para)
 msgid "Ensure that the operating system has recognized the new disk:"
 msgstr ""
 "オペレーティングシステムが新しいディスクを認識していることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:498(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:497(para)
 msgid "You should see a message about /dev/sdb."
 msgstr "/dev/sdb に関するメッセージを確認したほうがいいです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:499(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:498(para)
 msgid ""
 "Because it is recommended to not use partitions on a swift disk, simply "
 "format the disk as a whole:"
@@ -13268,11 +13280,11 @@ msgstr ""
 "Swift ディスクではパーティションを使用しないことが推奨されるので、単にディス"
 "ク全体をフォーマットします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:502(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:501(para)
 msgid "Finally, mount the disk:"
 msgstr "最後に、ディスクをマウントします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:504(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:503(para)
 msgid ""
 "Swift should notice the new disk and that no data exists. It then begins "
 "replicating the data to the disk from the other existing replicas."
@@ -13290,11 +13302,11 @@ msgstr ""
 "正常にサービスをシャットダウンし、自動的に再起動します。万全を期したい場合、"
 "再起動する前にバックアップジョブを実行してください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:511(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:510(title)
 msgid "Handling a Complete Failure"
 msgstr "完全な故障の対処"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:512(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:511(para)
 msgid ""
 "A common way of dealing with the recovery from a full system failure, such "
 "as a power outage of a data center is to assign each service a priority, and "
@@ -13303,107 +13315,107 @@ msgstr ""
 "データセンターの電力消失のような、完全なシステム故障から復旧する一般的な方法"
 "は、各サービスに優先度を付け、順番に復旧することです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:517(caption)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:516(caption)
 msgid "Example Service Restoration Priority List"
 msgstr "サービス復旧優先度一覧の例"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:524(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:523(para)
 msgid "Internal network connectivity"
 msgstr "内部ネットワーク接続性"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:531(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:530(para)
 msgid "Backing storage services"
 msgstr "バックエンドのストレージサービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:536(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:535(para)
 msgid "3"
 msgstr "3"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:538(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:537(para)
 msgid "Public network connectivity for user Virtual Machines"
 msgstr "ユーザーの仮想マシンに対するパブリックネットワーク接続性"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:545(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:544(para)
 msgid "Nova-compute, nova-network, cinder hosts"
 msgstr "nova-compute, nova-network, cinder ホスト"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:550(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:549(para)
 msgid "5"
 msgstr "5"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:552(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:551(para)
 msgid "User virtual machines"
 msgstr "ユーザーの仮想マシン"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:556(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:555(para)
 msgid "10"
 msgstr "10"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:558(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:557(para)
 msgid "Message Queue and Database services"
 msgstr "メッセージキューとデータベースのサービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:563(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:562(para)
 msgid "15"
 msgstr "15"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:565(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:564(para)
 msgid "Keystone services"
 msgstr "Keystone サービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:569(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:568(para)
 msgid "20"
 msgstr "20"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:571(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:570(para)
 msgid "cinder-scheduler"
 msgstr "cinder-scheduler"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:575(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:574(para)
 msgid "21"
 msgstr "21"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:577(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:576(para)
 msgid "Image Catalogue and Delivery services"
 msgstr "イメージカタログとイメージ配信のサービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:582(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:581(para)
 msgid "22"
 msgstr "22"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:584(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:583(para)
 msgid "nova-scheduler services"
 msgstr "nova-scheduler サービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:588(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:587(para)
 msgid "98"
 msgstr "98"
+
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:589(para)
+msgid "Cinder-api"
+msgstr "cinder-api"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:59(title)
 msgid "After a Cloud Controller or Storage Proxy Reboots"
 msgstr "クラウドコントローラーまたはストレージプロキシの再起動後"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:590(para)
-msgid "Cinder-api"
-msgstr "cinder-api"
-
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:594(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:593(para)
 msgid "99"
 msgstr "99"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:596(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:595(para)
 msgid "Nova-api services"
 msgstr "nova-api サービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:600(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:599(para)
 msgid "100"
 msgstr "100"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:602(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:601(para)
 msgid "Dashboard node"
 msgstr "ダッシュボードサービス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:606(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:605(para)
 msgid ""
 "Use this example priority list to ensure that user affected services are "
 "restored as soon as possible, but not before a stable environment is in "
@@ -13428,11 +13440,11 @@ msgstr ""
 "クラウドコントローラーを再起動した後、すべての必要なサービスが正常に起動した"
 "ことを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:618(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:617(title)
 msgid "Configuration Management"
 msgstr "構成管理"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:619(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:618(para)
 msgid ""
 "Maintaining an OpenStack cloud requires that you manage multiple physical "
 "servers, and this number might grow over time. Because managing nodes "
@@ -13449,7 +13461,7 @@ msgstr ""
 "します。また、これらを使うことで、(パッケージや設定オプションといった) 構成情"
 "報のバージョン管理されたリポジトリでの管理が行いやすくなります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:628(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:627(para)
 msgid ""
 "Several configuration management tools are available, and this guide does "
 "not recommend a specific one. The two most popular ones in the OpenStack "
@@ -13485,11 +13497,11 @@ msgstr ""
 "com) や <link href=\"http://bcfg2.org/\">Bcfg2</link> (http://bcfg2.org) があ"
 "ります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:658(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:657(title)
 msgid "Working with Hardware"
 msgstr "ハードウェアの取り扱い"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:659(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:658(para)
 msgid ""
 "Similar to your initial deployment, you should ensure all hardware is "
 "appropriately burned in before adding it to production. Run software that "
@@ -13504,11 +13516,11 @@ msgstr ""
 "す。そのため、システムのパフォーマンスに関する良いアイディアを得ることもでき"
 "ます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:668(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:667(title)
 msgid "Adding a Compute Node"
 msgstr "コンピュートノードの追加"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:669(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:668(para)
 msgid ""
 "If you find that you have reached or are reaching the capacity limit of your "
 "computing resources, you should plan to add additional compute nodes. Adding "
@@ -13535,7 +13547,7 @@ msgstr ""
 msgid "Also check that all services are functioning:"
 msgstr "また、すべてのサービスが正しく機能していることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:683(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:682(para)
 msgid ""
 "If your OpenStack Block Storage nodes are separate from your compute nodes, "
 "the same procedure still applies as the same queuing and polling system is "
@@ -13545,7 +13557,7 @@ msgstr ""
 "キュー管理とポーリングのシステムが両方のサービスで使用されるので、同じ手順が"
 "適用できます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:687(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:686(para)
 msgid ""
 "We recommend that you use the same hardware for new compute and block "
 "storage nodes. At the very least, ensure that the CPUs are similar in the "
@@ -13555,11 +13567,11 @@ msgstr ""
 "用することを推奨します。最低限、ライブマイグレーションが失敗しないように、コ"
 "ンピュートノードでは CPU は同様のものにしてください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:694(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:693(title)
 msgid "Adding an Object Storage Node"
 msgstr "オブジェクトストレージノードの追加"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:695(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:694(para)
 msgid ""
 "Adding a new object storage node is different than adding compute or block "
 "storage nodes. You still want to initially configure the server by using "
@@ -13581,7 +13593,7 @@ msgstr ""
 "再実行するだけです。これが終わったら、リングの再バランスを行い、更新されたリ"
 "ングファイルを他のストレージノードにコピーします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:709(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:708(para)
 msgid ""
 "If your new object storage node has a different number of disks than the "
 "original nodes have, the command to add the new node is different than the "
@@ -13591,11 +13603,11 @@ msgstr ""
 "なる場合には、新しいノードを追加するコマンドが元々のコマンドと異なります。こ"
 "れらのパラメーターは環境により異なります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:718(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:717(title)
 msgid "Replacing Components"
 msgstr "コンポーネントの交換"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:719(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:718(para)
 msgid ""
 "Failures of hardware are common in large scale deployments such as an "
 "infrastructure cloud. Consider your processes and balance time saving "
@@ -13620,11 +13632,11 @@ msgstr ""
 "ストレージプロキシの場合、Object Storage サービスが再開していることを確認しま"
 "す。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:732(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:731(title)
 msgid "Databases"
 msgstr "データベース"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:733(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:732(para)
 msgid ""
 "Almost all OpenStack components have an underlying database to store "
 "persistent information. Usually this database is MySQL. Normal MySQL "
@@ -13640,7 +13652,7 @@ msgstr ""
 "マンス調整、高可用性、バックアップ、リカバリーおよび修理などがあります。さら"
 "なる情報は標準の MySQL 管理ガイドを参照してください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:742(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:741(para)
 msgid ""
 "You can perform a couple tricks with the database to either more quickly "
 "retrieve information or fix a data inconsistency error. For example, an "
@@ -13652,11 +13664,11 @@ msgstr ""
 "が、データベースの状態が更新されていなかった、という状況です。こうした小技が"
 "このドキュメント全体を通して議論されています。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:749(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:748(title)
 msgid "Database Connectivity"
 msgstr "データベース接続性"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:750(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:749(para)
 msgid ""
 "Review the components configuration file to see how each OpenStack component "
 "accesses its corresponding database. Look for either <code>sql_connection</"
@@ -13670,15 +13682,15 @@ msgstr ""
 msgid "Also check that it is functioning:"
 msgstr "また、正しく機能していることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:761(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:760(para)
 msgid "The connection strings take this format:"
 msgstr "connection 文字列は以下の形式をとります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:766(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:765(title)
 msgid "Performance and Optimizing"
 msgstr "パフォーマンスと最適化"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:767(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:766(para)
 msgid ""
 "As your cloud grows, MySQL is utilized more and more. If you suspect that "
 "MySQL might be becoming a bottleneck, you should start researching MySQL "
@@ -13694,11 +13706,11 @@ msgstr ""
 "dev.mysql.com/doc/refman/5.5/en/optimize-overview.html) というセクションがあ"
 "り、一つのセクション全部をあててこの話題を扱っています。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:779(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:778(title)
 msgid "HDWMY"
 msgstr "HDWMY"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:780(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:779(para)
 msgid ""
 "Here's a quick list of various to-do items each hour, day, week, month, and "
 "year. Please note these tasks are neither required nor definitive, but "
@@ -13708,27 +13720,27 @@ msgstr ""
 "れらのタスクは必要なものでも、絶対的なものでもありませんが、役に立つものばか"
 "りです。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:785(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:784(title)
 msgid "Hourly"
 msgstr "毎時"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:788(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:787(para)
 msgid "Check your monitoring system for alerts and act on them."
 msgstr "監視システムのアラートを確認し、それらに対処します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:792(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:791(para)
 msgid "Check your ticket queue for new tickets."
 msgstr "チケットキューの新しいチケットを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:799(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:798(title)
 msgid "Daily"
 msgstr "日次"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:802(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:801(para)
 msgid "Check for instances in a failed or weird state and investigate why."
 msgstr "故障または異常になっているインスタンスを確認し、理由を調査します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:806(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:805(para)
 msgid "Check for security patches and apply them as needed."
 msgstr "セキュリティパッチを確認し、必要に応じて適用します。"
 
@@ -13736,15 +13748,15 @@ msgstr "セキュリティパッチを確認し、必要に応じて適用しま
 msgid "Total Cloud Controller Failure"
 msgstr "全体的なクラウドコントローラーの故障"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:813(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:812(title)
 msgid "Weekly"
 msgstr "週次"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:816(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:815(para)
 msgid "Check cloud usage: <placeholder-1/>"
 msgstr "クラウドの使用量を確認します: <placeholder-1/>"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:818(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:817(para)
 msgid "User quotas"
 msgstr "ユーザークォータ"
 
@@ -13757,39 +13769,39 @@ msgstr ""
 "残念ながら、これはひどい状況です。クラウドコントローラーはクラウドの不可欠な"
 "部分です。コントローラーが一つだけならば、多くのサービスが失われます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:821(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:820(para)
 msgid "Disk space"
 msgstr "ディスク領域"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:824(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:823(para)
 msgid "Image usage"
 msgstr "イメージ使用量"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:827(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:826(para)
 msgid "Large instances"
 msgstr "大きなインスタンス"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:830(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:829(para)
 msgid "Network usage (bandwidth and IP usage)"
 msgstr "ネットワーク使用量 (帯域および IP 使用量)"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:836(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:835(para)
 msgid "Verify your alert mechanisms are still working."
 msgstr "アラート機能が動作していることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:843(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:842(title)
 msgid "Monthly"
 msgstr "月次"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:846(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:845(para)
 msgid "Check usage and trends over the past month."
 msgstr "この 1 か月における使用量および傾向を確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:850(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:849(para)
 msgid "Check for user accounts that should be removed."
 msgstr "削除すべきユーザーアカウントを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:854(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:853(para)
 msgid "Check for operator accounts that should be removed."
 msgstr "削除すべきオペレーターアカウントを確認します。"
 
@@ -13809,46 +13821,46 @@ msgstr ""
 "link> が http://docs.openstack.org/trunk/openstack-ha/content/ch-intro.html "
 "にあります。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:861(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:860(title)
 msgid "Quarterly"
 msgstr "四半期ごと"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:864(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:863(para)
 msgid "Review usage and trends over the past quarter."
 msgstr "この四半期における使用量および傾向を確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:868(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:867(para)
 msgid "Prepare any quarterly reports on usage and statistics."
 msgstr "使用量と統計に関する四半期レポートを準備します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:872(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:871(para)
 msgid "Review and plan any necessary cloud additions."
 msgstr "クラウドの追加の必要性を検討し、計画を立てます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:876(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:875(para)
 msgid "Review and plan any major OpenStack upgrades."
 msgstr "OpenStack のメジャーアップグレードの内容を確認し、その計画を立てます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:883(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:882(title)
 msgid "Semi-Annually"
 msgstr "半年ごと"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:886(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:885(para)
 msgid "Upgrade OpenStack."
 msgstr "OpenStack をアップグレードします。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:889(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:888(para)
 msgid ""
 "Clean up after OpenStack upgrade (any unused or new services to be aware of?)"
 msgstr ""
 "OpenStack のアップグレード後に後始末を行います (未使用または新しいサービスを"
 "把握していますか?)"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:897(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:896(title)
 msgid "Determining which Component Is Broken"
 msgstr "故障しているコンポーネントの特定"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:898(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:897(para)
 msgid ""
 "OpenStack's collection of different components interact with each other "
 "strongly. For example, uploading an image requires interaction from "
@@ -13864,11 +13876,11 @@ msgstr ""
 "生している箇所を正確に特定することが難しくなります。これを支援することがこの"
 "セクションの目的です。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:908(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:907(title)
 msgid "Tailing Logs"
 msgstr "最新ログの確認"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:909(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:908(para)
 msgid ""
 "The first place to look is the log file related to the command you are "
 "trying to run. For example, if <code>nova list</code> is failing, try "
@@ -13878,17 +13890,17 @@ msgstr ""
 "す。たとえば、<code>nova list</code> が失敗していれば、Nova ログファイルを "
 "tail 表示しながら、次のコマンドを再実行してください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:913(para)
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:925(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:912(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:924(para)
 msgid "Terminal 1:"
 msgstr "端末 1:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:915(para)
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:927(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:914(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:926(para)
 msgid "Terminal 2:"
 msgstr "端末 2:"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:917(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:916(para)
 msgid ""
 "Look for any errors or traces in the log file. For more information, see the "
 "chapter on <emphasis role=\"bold\">Logging and Monitoring</emphasis>."
@@ -13896,7 +13908,7 @@ msgstr ""
 "何らかのエラーまたはトレースをログファイルで探します。詳細は <emphasis role="
 "\"bold\">ロギングとモニタリング</emphasis> の章を参照してください。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:921(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:920(para)
 msgid ""
 "If the error indicates that the problem is with another component, switch to "
 "tailing that component's log file. For example, if nova cannot access "
@@ -13906,15 +13918,15 @@ msgstr ""
 "ントのログファイルに表示を切り替えます。nova が glance にアクセスできなけれ"
 "ば、glance-api ログを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:929(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:928(para)
 msgid "Wash, rinse, repeat until you find the core cause of the problem."
 msgstr "問題の根本となる原因を見つけるまで、洗い出し、精査し、繰り返します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:935(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:934(title)
 msgid "Running Daemons on the CLI"
 msgstr "コマンドラインでのデーモンの実行"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:936(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:935(para)
 msgid ""
 "Unfortunately, sometimes the error is not apparent from the log files. In "
 "this case, switch tactics and use a different command, maybe run the service "
@@ -13942,12 +13954,12 @@ msgstr ""
 "プを復元します (<emphasis role=\"bold\">バックアップとリカバリー</emphasis> "
 "の章を参照してください)。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:944(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:943(para)
 msgid "This might print the error and cause of the problem.<placeholder-1/>"
 msgstr ""
 "これにより、エラーと問題の原因が表示されるかもしれません。 <placeholder-1/>"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:945(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:944(para)
 msgid ""
 "The <literal>-H</literal> flag is required when running the daemons with "
 "sudo because some daemons will write files relative to the user's home "
@@ -13958,11 +13970,11 @@ msgstr ""
 "に書き込みを行うため、<literal>-H</literal> がないと、この書き込みが失敗して"
 "しまいます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:954(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:953(title)
 msgid "Example of Complexity"
 msgstr "複雑な例"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:955(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:954(para)
 msgid ""
 "One morning, a compute node failed to run any instances. The log files were "
 "a bit vague, claiming that a certain instance was unable to be started. This "
@@ -13976,7 +13988,7 @@ msgstr ""
 "ンスタンスがアルファベット順で最初のインスタンスだったので、nova-compute が最"
 "初に操作したのがそのインスタンスだったというだけでした。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:961(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:960(para)
 msgid ""
 "Further troubleshooting showed that libvirt was not running at all. This "
 "made more sense. If libvirt wasn't running, then no instance could be "
@@ -13989,7 +14001,7 @@ msgstr ""
 "は何も表示せずすぐに停止しました。libvirt のログでは理由がわかりませんでし"
 "た。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:967(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:966(para)
 msgid ""
 "Next, the <code>libvirtd</code> daemon was run on the command line. Finally "
 "a helpful error message: it could not connect to d-bus. As ridiculous as it "
@@ -14004,11 +14016,11 @@ msgstr ""
 "ラッシュしました。単に D-Bus を開始するだけで、一連のプログラムがうまく動くよ"
 "うになり、すぐに全部が元に戻り動作状態になりました。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978(title)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:977(title)
 msgid "Upgrades"
 msgstr "アップグレード"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:979(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978(para)
 msgid ""
 "With the exception of Object Storage, an upgrade from one version of "
 "OpenStack to another is a great deal of work."
@@ -14016,25 +14028,25 @@ msgstr ""
 "Object Storage 以外では、OpenStack をあるバージョンから別のバージョンへアップ"
 "グレードするには、非常に労力を伴います。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:982(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:981(para)
 msgid "The upgrade process generally follows these steps:"
 msgstr "一般的に、アップグレード作業は以下の手順で行います。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:986(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:985(para)
 msgid "Read the release notes and documentation."
 msgstr "リリースノートとドキュメントを読みます。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:990(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:989(para)
 msgid "Find incompatibilities between different versions."
 msgstr "異なるバージョン間の非互換性を確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:994(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:993(para)
 msgid "Plan an upgrade schedule and complete it in order on a test cluster."
 msgstr ""
 "アップグレードスケジュールの計画を立て、テストクラスターで手順どおりにアップ"
 "グレードができることを確認します。"
 
-#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:998(para)
+#: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:997(para)
 msgid "Run the upgrade."
 msgstr "アップグレードを実行します。"
 
@@ -16265,16 +16277,23 @@ msgstr ""
 "Blueprint やリリースノートを見て下さい。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:44(para)
+#, fuzzy
+#| msgid ""
+#| "<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/"
+#| "openstack-dev\">Development list</link>: <code>openstack-dev@lists."
+#| "openstack.org</code>. The scope of this list is the future state of "
+#| "OpenStack. This is a high traffic mailing list, with multiple emails per "
+#| "day."
 msgid ""
-"<link href=\"https://launchpad.net/~openstack\">General list</"
-"link>: <code>openstack@lists.launchpad.net</code>. The scope of this list is "
-"the current state of OpenStack. This is a very high traffic mailing list, "
-"with many, many emails per day."
+"<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack"
+"\">General list</link>: <code>openstack@lists.openstack.org</code>. The "
+"scope of this list is the current state of OpenStack. This is a very high "
+"traffic mailing list, with many, many emails per day."
 msgstr ""
-"<link href=\"https://launchpad.net/~openstack\">一般向けメーリングリスト</"
-"link>: <code>openstack@lists.launchpad.net</code>. このリストでは、OpenStack"
-"の現行リリースに関する話題を扱います。流量は非常に多く、1日にとてもたくさんの"
-"メールが流れます。"
+"<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-"
+"dev\">開発者向けリスト</link>: <code>openstack-dev@lists.openstack.org</"
+"code>. このリストでは、OpenStackの今後についての話題を扱います。流量は多く、1"
+"日に何通もメールが流れます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:443(para)
 msgid "Release notes are maintained on the OpenStack wiki:"
@@ -17595,7 +17614,8 @@ msgid ""
 "When viewing the server information, you can see the metadata included on "
 "the metadata line:"
 msgstr ""
-"サーバーの情報を表示するとき、メタデータ行に含まれるメタデータを参照できます。"
+"サーバーの情報を表示するとき、メタデータ行に含まれるメタデータを参照できま"
+"す。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:64(title)
 msgid "Deleting Images"
@@ -18550,3 +18570,14 @@ msgstr ""
 #~ "リュームを使いたいのか、指定することができます。これによって、アプリケー"
 #~ "ションのリソースを異なるマシンに分散することを保証でき、ハードウェア故障が"
 #~ "発生しても高可用性を達成することができます。"
+
+#~ msgid ""
+#~ "<link href=\"https://launchpad.net/~openstack\">General list</"
+#~ "link>: <code>openstack@lists.launchpad.net</code>. The scope of this list "
+#~ "is the current state of OpenStack. This is a very high traffic mailing "
+#~ "list, with many, many emails per day."
+#~ msgstr ""
+#~ "<link href=\"https://launchpad.net/~openstack\">一般向けメーリングリスト</"
+#~ "link>: <code>openstack@lists.launchpad.net</code>. このリストでは、"
+#~ "OpenStackの現行リリースに関する話題を扱います。流量は非常に多く、1日にとて"
+#~ "もたくさんのメールが流れます。"

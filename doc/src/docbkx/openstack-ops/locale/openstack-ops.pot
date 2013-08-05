@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-22 19:40+0900\n"
+"POT-Creation-Date: 2013-08-05 13:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4626,614 +4626,614 @@ msgid "After that, use the nova command to reboot all instances that were on c01
 msgstr ""
 
 #: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:389(para)
-msgid "Finally, re-attach volumes using the same method described in <emphasis role=\"bold\">After a compute node Reboots</emphasis>."
+msgid "Finally, re-attach volumes using the same method described in <emphasis role=\"bold\">Volumes</emphasis>."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:395(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:394(title)
 msgid "/var/lib/nova/instances"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:396(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:395(para)
 msgid "It's worth mentioning this directory in the context of failed compute nodes. This directory contains the libvirt KVM file-based disk images for the instances that are hosted on that compute node. If you are not running your cloud in a shared storage environment, this directory is unique across all compute nodes."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:403(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:402(para)
 msgid "<code>/var/lib/nova/instances</code> contains two types of directories."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:406(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:405(para)
 msgid "The first is the <code>_base</code> directory. This contains all of the cached base images from glance for each unique image that has been launched on that compute node. Files ending in <code>_20</code> (or a different number) are the ephemeral base images."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:412(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:411(para)
 msgid "The other directories are titled <code>instance-xxxxxxxx</code>. These directories correspond to instances running on that compute node. The files inside are related to one of the files in the <code>_base</code> directory. They're essentially differential-based files containing only the changes made from the original <code>_base</code> directory."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:420(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:419(para)
 msgid "All files and directories in <code>/var/lib/nova/instances</code> are uniquely named. The files in _base are uniquely titled for the glance image that they are based on and the directory names <code>instance-xxxxxxxx</code> are uniquely titled for that particular instance. For example, if you copy all data from <code>/var/lib/nova/instances</code> on one compute node to another, you do not overwrite any files or cause any damage to images that have the same unique name, because they are essentially the same file."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:432(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:431(para)
 msgid "Although this method is not documented or supported, you can use it when your compute node is permanently offline but you have instances locally stored on it."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:440(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:439(title)
 msgid "Storage Node Failures and Maintenance"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:441(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:440(para)
 msgid "Due to the Object Storage's high redundancy, dealing with object storage node issues is a lot easier than dealing with compute node issues."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:446(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:445(title)
 msgid "Rebooting a Storage Node"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:447(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:446(para)
 msgid "If a storage node requires a reboot, simply reboot it. Requests for data hosted on that node are redirected to other copies while the server is rebooting."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:454(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:453(title)
 msgid "Shutting Down a Storage Node"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:455(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:454(para)
 msgid "If you need to shut down a storage node for an extended period of time (1+ days), consider removing the node from the storage ring. For example:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:464(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:463(para)
 msgid "Next, redistribute the ring files to the other nodes:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:470(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:469(para)
 msgid "These actions effectively take the storage node out of the storage cluster."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:472(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:471(para)
 msgid "When the node is able to rejoin the cluster, just add it back to the ring. The exact syntax to add a node to your Swift cluster using <code>swift-ring-builder</code> heavily depends on the original options used when you originally created your cluster. Please refer back to those commands."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:482(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:481(title)
 msgid "Replacing a Swift Disk"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:483(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:482(para)
 msgid "If a hard drive fails in a Object Storage node, replacing it is relatively easy. This assumes that your Object Storage environment is configured correctly where the data that is stored on the failed drive is also replicated to other drives in the Object Storage environment."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:489(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:488(para)
 msgid "This example assumes that <code>/dev/sdb</code> has failed."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:491(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:490(para)
 msgid "First, unmount the disk:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:493(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:492(para)
 msgid "Next, physically remove the disk from the server and replace it with a working disk."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:495(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:494(para)
 msgid "Ensure that the operating system has recognized the new disk:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:498(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:497(para)
 msgid "You should see a message about /dev/sdb."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:499(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:498(para)
 msgid "Because it is recommended to not use partitions on a swift disk, simply format the disk as a whole:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:502(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:501(para)
 msgid "Finally, mount the disk:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:504(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:503(para)
 msgid "Swift should notice the new disk and that no data exists. It then begins replicating the data to the disk from the other existing replicas."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:511(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:510(title)
 msgid "Handling a Complete Failure"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:512(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:511(para)
 msgid "A common way of dealing with the recovery from a full system failure, such as a power outage of a data center is to assign each service a priority, and restore in order."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:517(caption)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:516(caption)
 msgid "Example Service Restoration Priority List"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:522(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:51(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:58(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:521(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:51(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:58(para)
 msgid "1"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:524(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:523(para)
 msgid "Internal network connectivity"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:529(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:65(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:528(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:65(para)
 msgid "2"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:531(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:530(para)
 msgid "Backing storage services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:536(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:535(para)
 msgid "3"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:538(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:537(para)
 msgid "Public network connectivity for user Virtual Machines"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:543(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:72(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:542(para) ./doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:72(para)
 msgid "4"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:545(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:544(para)
 msgid "Nova-compute, nova-network, cinder hosts"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:550(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:549(para)
 msgid "5"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:552(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:551(para)
 msgid "User virtual machines"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:556(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:555(para)
 msgid "10"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:558(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:557(para)
 msgid "Message Queue and Database services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:563(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:562(para)
 msgid "15"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:565(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:564(para)
 msgid "Keystone services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:569(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:568(para)
 msgid "20"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:571(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:570(para)
 msgid "cinder-scheduler"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:575(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:574(para)
 msgid "21"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:577(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:576(para)
 msgid "Image Catalogue and Delivery services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:582(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:581(para)
 msgid "22"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:584(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:583(para)
 msgid "nova-scheduler services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:588(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:587(para)
 msgid "98"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:590(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:589(para)
 msgid "Cinder-api"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:594(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:593(para)
 msgid "99"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:596(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:595(para)
 msgid "Nova-api services"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:600(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:599(para)
 msgid "100"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:602(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:601(para)
 msgid "Dashboard node"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:606(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:605(para)
 msgid "Use this example priority list to ensure that user affected services are restored as soon as possible, but not before a stable environment is in place. Of course, despite being listed as a single line item, each step requires significant work. For example, just after starting the database, you should check its integrity or, after starting the Nova services, you should verify that the hypervisor matches the database and fix any mismatches."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:618(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:617(title)
 msgid "Configuration Management"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:619(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:618(para)
 msgid "Maintaining an OpenStack cloud requires that you manage multiple physical servers, and this number might grow over time. Because managing nodes manually is error-prone, we strongly recommend that you use a configuration management tool. These tools automate the process of ensuring that all of your nodes are configured properly and encourage you to maintain your configuration information (such as packages and configuration options) in a version controlled repository."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:628(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:627(para)
 msgid "Several configuration management tools are available, and this guide does not recommend a specific one. The two most popular ones in the OpenStack community are <link href=\"https://puppetlabs.com/\">Puppet</link> (https://puppetlabs.com/) with available <link title=\"Optimization Overview\" href=\"http://github.com/puppetlabs/puppetlabs-openstack\">OpenStack Puppet modules</link> (http://github.com/puppetlabs/puppetlabs-openstack) and <link href=\"http://www.opscode.com/chef/\">Chef</link> (http://opscode.com/chef) with available <link href=\"https://github.com/opscode/openstack-chef-repo\">OpenStack Chef recipes</link> (https://github.com/opscode/openstack-chef-repo). Other newer configuration tools include <link href=\"https://juju.ubuntu.com/\">Juju</link> (https://juju.ubuntu.com/) <link href=\"http://ansible.cc\">Ansible</link> (http://ansible.cc) and <link href=\"http://saltstack.com/\">Salt</link> (http://saltstack.com), and more mature configuration management tools include <link href=\"http://cfengine.com/\">CFEngine</link> (http://cfengine.com) and <link href=\"http://bcfg2.org/\">Bcfg2</link> (http://bcfg2.org)."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:658(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:657(title)
 msgid "Working with Hardware"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:659(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:658(para)
 msgid "Similar to your initial deployment, you should ensure all hardware is appropriately burned in before adding it to production. Run software that uses the hardware to its limits - maxing out RAM, CPU, disk and network. Many options are available, and normally double as benchmark software so you also get a good idea of the performance of your system."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:668(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:667(title)
 msgid "Adding a Compute Node"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:669(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:668(para)
 msgid "If you find that you have reached or are reaching the capacity limit of your computing resources, you should plan to add additional compute nodes. Adding more nodes is quite easy. The process for adding nodes is the same as when the initial compute nodes were deployed to your cloud: use an automated deployment system to bootstrap the bare-metal server with the operating system and then have a configuration management system install and configure the OpenStack Compute service. Once the Compute service has been installed and configured in the same way as the other compute nodes, it automatically attaches itself to the cloud. The cloud controller notices the new node(s) and begin scheduling instances to launch there."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:683(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:682(para)
 msgid "If your OpenStack Block Storage nodes are separate from your compute nodes, the same procedure still applies as the same queuing and polling system is used in both services."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:687(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:686(para)
 msgid "We recommend that you use the same hardware for new compute and block storage nodes. At the very least, ensure that the CPUs are similar in the compute nodes to not break live migration."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:694(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:693(title)
 msgid "Adding an Object Storage Node"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:695(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:694(para)
 msgid "Adding a new object storage node is different than adding compute or block storage nodes. You still want to initially configure the server by using your automated deployment and configuration management systems. After that is done, you need to add the local disks of the object storage node into the object storage ring. The exact command to do this is the same command that was used to add the initial disks to the ring. Simply re-run this command on the object storage proxy server for all disks on the new object storage node. Once this has been done, rebalance the ring and copy the resulting ring files to the other storage nodes."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:709(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:708(para)
 msgid "If your new object storage node has a different number of disks than the original nodes have, the command to add the new node is different than the original commands. These parameters vary from environment to environment."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:718(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:717(title)
 msgid "Replacing Components"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:719(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:718(para)
 msgid "Failures of hardware are common in large scale deployments such as an infrastructure cloud. Consider your processes and balance time saving against availability. For example, an Object Storage cluster can easily live with dead disks in it for some period of time if it has sufficient capacity. Or, if your compute installation is not full you could consider live migrating instances off a host with a RAM failure until you have time to deal with the problem."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:732(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:731(title)
 msgid "Databases"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:733(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:732(para)
 msgid "Almost all OpenStack components have an underlying database to store persistent information. Usually this database is MySQL. Normal MySQL administration is applicable to these databases. OpenStack does not configure the databases out of the ordinary. Basic administration includes performance tweaking, high availability, backup, recovery, and repairing. For more information, see a standard MySQL administration guide."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:742(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:741(para)
 msgid "You can perform a couple tricks with the database to either more quickly retrieve information or fix a data inconsistency error. For example, an instance was terminated but the status was not updated in the database. These tricks are discussed throughout this book."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:749(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:748(title)
 msgid "Database Connectivity"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:750(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:749(para)
 msgid "Review the components configuration file to see how each OpenStack component accesses its corresponding database. Look for either <code>sql_connection</code> or simply <code>connection</code>:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:761(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:760(para)
 msgid "The connection strings take this format:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:766(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:765(title)
 msgid "Performance and Optimizing"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:767(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:766(para)
 msgid "As your cloud grows, MySQL is utilized more and more. If you suspect that MySQL might be becoming a bottleneck, you should start researching MySQL optimization. The MySQL manual has an entire section dedicated to this topic <link href=\"http://dev.mysql.com/doc/refman/5.5/en/optimize-overview.html\">Optimization Overview</link> (http://dev.mysql.com/doc/refman/5.5/en/optimize-overview.html)."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:779(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:778(title)
 msgid "HDWMY"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:780(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:779(para)
 msgid "Here's a quick list of various to-do items each hour, day, week, month, and year. Please note these tasks are neither required nor definitive, but helpful ideas:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:785(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:784(title)
 msgid "Hourly"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:788(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:787(para)
 msgid "Check your monitoring system for alerts and act on them."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:792(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:791(para)
 msgid "Check your ticket queue for new tickets."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:799(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:798(title)
 msgid "Daily"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:802(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:801(para)
 msgid "Check for instances in a failed or weird state and investigate why."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:806(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:805(para)
 msgid "Check for security patches and apply them as needed."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:813(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:812(title)
 msgid "Weekly"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:818(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:817(para)
 msgid "User quotas"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:821(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:820(para)
 msgid "Disk space"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:824(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:823(para)
 msgid "Image usage"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:827(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:826(para)
 msgid "Large instances"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:830(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:829(para)
 msgid "Network usage (bandwidth and IP usage)"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:816(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:815(para)
 msgid "Check cloud usage: <placeholder-1/>"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:836(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:835(para)
 msgid "Verify your alert mechanisms are still working."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:843(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:842(title)
 msgid "Monthly"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:846(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:845(para)
 msgid "Check usage and trends over the past month."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:850(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:849(para)
 msgid "Check for user accounts that should be removed."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:854(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:853(para)
 msgid "Check for operator accounts that should be removed."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:861(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:860(title)
 msgid "Quarterly"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:864(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:863(para)
 msgid "Review usage and trends over the past quarter."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:868(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:867(para)
 msgid "Prepare any quarterly reports on usage and statistics."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:872(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:871(para)
 msgid "Review and plan any necessary cloud additions."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:876(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:875(para)
 msgid "Review and plan any major OpenStack upgrades."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:883(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:882(title)
 msgid "Semi-Annually"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:886(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:885(para)
 msgid "Upgrade OpenStack."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:889(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:888(para)
 msgid "Clean up after OpenStack upgrade (any unused or new services to be aware of?)"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:897(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:896(title)
 msgid "Determining which Component Is Broken"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:898(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:897(para)
 msgid "OpenStack's collection of different components interact with each other strongly. For example, uploading an image requires interaction from <code>nova-api</code>, <code>glance-api</code>, <code>glance-registry</code>, Keystone, and potentially <code>swift-proxy</code>. As a result, it is sometimes difficult to determine exactly where problems lie. Assisting in this is the purpose of this section."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:908(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:907(title)
 msgid "Tailing Logs"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:909(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:908(para)
 msgid "The first place to look is the log file related to the command you are trying to run. For example, if <code>nova list</code> is failing, try tailing a Nova log file and running the command again:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:913(para) ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:925(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:912(para) ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:924(para)
 msgid "Terminal 1:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:915(para) ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:927(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:914(para) ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:926(para)
 msgid "Terminal 2:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:917(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:916(para)
 msgid "Look for any errors or traces in the log file. For more information, see the chapter on <emphasis role=\"bold\">Logging and Monitoring</emphasis>."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:921(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:920(para)
 msgid "If the error indicates that the problem is with another component, switch to tailing that component's log file. For example, if nova cannot access glance, look at the glance-api log:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:929(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:928(para)
 msgid "Wash, rinse, repeat until you find the core cause of the problem."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:935(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:934(title)
 msgid "Running Daemons on the CLI"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:936(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:935(para)
 msgid "Unfortunately, sometimes the error is not apparent from the log files. In this case, switch tactics and use a different command, maybe run the service directly on the command line. For example, if the <code>glance-api</code> service refuses to start and stay running, try launching the daemon from the command line:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:945(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:944(para)
 msgid "The <literal>-H</literal> flag is required when running the daemons with sudo because some daemons will write files relative to the user's home directory, and this write may fail if <literal>-H</literal> is left off."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:944(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:943(para)
 msgid "This might print the error and cause of the problem.<placeholder-1/>"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:954(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:953(title)
 msgid "Example of Complexity"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:955(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:954(para)
 msgid "One morning, a compute node failed to run any instances. The log files were a bit vague, claiming that a certain instance was unable to be started. This ended up being a red herring because the instance was simply the first instance in alphabetical order, so it was the first instance that nova-compute would touch."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:961(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:960(para)
 msgid "Further troubleshooting showed that libvirt was not running at all. This made more sense. If libvirt wasn't running, then no instance could be virtualized through KVM. Upon trying to start libvirt, it would silently die immediately. The libvirt logs did not explain why."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:967(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:966(para)
 msgid "Next, the <code>libvirtd</code> daemon was run on the command line. Finally a helpful error message: it could not connect to d-bus. As ridiculous as it sounds, libvirt, and thus <code>nova-compute</code>, relies on d-bus and somehow d-bus crashed. Simply starting d-bus set the entire chain back on track and soon everything was back up and running."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:977(title)
 msgid "Upgrades"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:979(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:978(para)
 msgid "With the exception of Object Storage, an upgrade from one version of OpenStack to another is a great deal of work."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:982(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:981(para)
 msgid "The upgrade process generally follows these steps:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:986(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:985(para)
 msgid "Read the release notes and documentation."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:990(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:989(para)
 msgid "Find incompatibilities between different versions."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:994(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:993(para)
 msgid "Plan an upgrade schedule and complete it in order on a test cluster."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:998(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:997(para)
 msgid "Run the upgrade."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1001(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1000(para)
 msgid "You can perform an upgrade while user instances run. However, this strategy can be dangerous. Don't forget appropriate notice to your users, and backups."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1004(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1003(para)
 msgid "The general order that seems to be most successful is:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1008(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1007(para)
 msgid "Upgrade the OpenStack Identity service (keystone)."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1012(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1011(para)
 msgid "Upgrade the OpenStack Image service (glance)."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1016(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1015(para)
 msgid "Upgrade all OpenStack Compute (nova) services."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1020(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1019(para)
 msgid "Upgrade all OpenStack Block Storage (cinder) services."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1024(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1023(para)
 msgid "For each of these steps, complete the following sub-steps:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1028(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1027(para)
 msgid "Stop services."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1031(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1030(para)
 msgid "Create a backup of configuration files and databases."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1035(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1034(para)
 msgid "Upgrade the packages using your distribution's package manager."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1039(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1038(para)
 msgid "Update the configuration files according to the release notes."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1043(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1042(para)
 msgid "Apply the database upgrades."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1046(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1045(para)
 msgid "Restart the services."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1049(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1048(para)
 msgid "Verify that everything is running."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1052(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1051(para)
 msgid "Probably the most important step of all is the pre-upgrade testing. Especially if you are upgrading immediately after release of a new version, undiscovered bugs might hinder your progress. Some deployers prefer to wait until the first point release is announced. However, if you have a significant deployment, you might follow the development and testing of the release, thereby ensuring that bugs for your use cases are fixed."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1061(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1060(para)
 msgid "To complete an upgrade of OpenStack Compute while keeping instances running, you should be able to use live migration to move machines around while performing updates, and then move them back afterward as this is a property of the hypervisor. However, it is critical to ensure that database changes are successful otherwise an inconsistent cluster state could arise."
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072(title)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1071(title)
 msgid "Uninstalling"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1073(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072(para)
 msgid "While we'd always recommend using your automated deployment system to re-install systems from scratch, sometimes you do need to remove OpenStack from a system the hard way. Here's how:"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1077(para)
 msgid "Remove all packages"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078(para)
 msgid "Remove reamining files"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1080(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079(para)
 msgid "Remove databases"
 msgstr ""
 
-#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1082(para)
+#: ./doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1081(para)
 msgid "These steps depend on your underlying distribution, but in general you should be looking for 'purge' commands in your package manager, like <literal> aptitude purge ~c $package</literal>. Following this, you can look for orphaned files in the directories referenced throughout this guide. For uninstalling the database properly, refer to the manual appropriate for the product in use."
 msgstr ""
 
@@ -6148,7 +6148,7 @@ msgid "<link href=\"https://wiki.openstack.org/wiki/Mailing_Lists\">Mailing List
 msgstr ""
 
 #: ./doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:44(para)
-msgid "<link href=\"https://launchpad.net/~openstack\">General list</link>: <code>openstack@lists.launchpad.net</code>. The scope of this list is the current state of OpenStack. This is a very high traffic mailing list, with many, many emails per day."
+msgid "<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack\">General list</link>: <code>openstack@lists.openstack.org</code>. The scope of this list is the current state of OpenStack. This is a very high traffic mailing list, with many, many emails per day."
 msgstr ""
 
 #: ./doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:54(para)
@@ -8106,7 +8106,7 @@ msgid "VLANs"
 msgstr ""
 
 #: ./doc/src/docbkx/openstack-ops/src/ch_arch_network_design.xml:227(para)
-msgid "VLAN configuration can be as simple or as complicated as desired. The use of VLANs has the benefit of allowing each project its own subnet and broadcast segregation from other projects. to allow OpenStack to efficiently use VLANs, you must allocate a VLAN range (one for each project) and turn each compute node switch port into a trunk port."
+msgid "VLAN configuration can be as simple or as complicated as desired. The use of VLANs has the benefit of allowing each project its own subnet and broadcast segregation from other projects. To allow OpenStack to efficiently use VLANs, you must allocate a VLAN range (one for each project) and turn each compute node switch port into a trunk port."
 msgstr ""
 
 #: ./doc/src/docbkx/openstack-ops/src/ch_arch_network_design.xml:234(para)
