@@ -7476,13 +7476,6 @@ msgid "VLANs"
 msgstr "VLAN"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_network_design.xml:227(para)
-#, fuzzy
-#| msgid ""
-#| "VLAN configuration can be as simple or as complicated as desired. The use "
-#| "of VLANs has the benefit of allowing each project its own subnet and "
-#| "broadcast segregation from other projects. to allow OpenStack to "
-#| "efficiently use VLANs, you must allocate a VLAN range (one for each "
-#| "project) and turn each compute node switch port into a trunk port."
 msgid ""
 "VLAN configuration can be as simple or as complicated as desired. The use of "
 "VLANs has the benefit of allowing each project its own subnet and broadcast "
@@ -13063,15 +13056,11 @@ msgstr ""
 "再起動します。起動する際にインスタンスの XML ファイルを再生成します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:389(para)
-#, fuzzy
-#| msgid ""
-#| "Finally, re-attach volumes using the same method described in <emphasis "
-#| "role=\"bold\">After a compute node Reboots</emphasis>."
 msgid ""
 "Finally, re-attach volumes using the same method described in <emphasis role="
 "\"bold\">Volumes</emphasis>."
 msgstr ""
-"最後に、<emphasis role=\"bold\">コンピュートノードの再起動後</emphasis> に説"
+"最後に、<emphasis role=\"bold\">ボリューム</emphasis>の節で説"
 "明されているのと同じ方法を用いて、ボリュームを再接続します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:394(title)
@@ -16277,23 +16266,16 @@ msgstr ""
 "Blueprint やリリースノートを見て下さい。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:44(para)
-#, fuzzy
-#| msgid ""
-#| "<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/"
-#| "openstack-dev\">Development list</link>: <code>openstack-dev@lists."
-#| "openstack.org</code>. The scope of this list is the future state of "
-#| "OpenStack. This is a high traffic mailing list, with multiple emails per "
-#| "day."
 msgid ""
 "<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack"
 "\">General list</link>: <code>openstack@lists.openstack.org</code>. The "
 "scope of this list is the current state of OpenStack. This is a very high "
 "traffic mailing list, with many, many emails per day."
 msgstr ""
-"<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-"
-"dev\">開発者向けリスト</link>: <code>openstack-dev@lists.openstack.org</"
-"code>. このリストでは、OpenStackの今後についての話題を扱います。流量は多く、1"
-"日に何通もメールが流れます。"
+"<link href=\"http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack"
+"\">一般向けメーリングリスト</link>: <code>openstack@lists.openstack.org</"
+"code>. このリストでは、OpenStackの現行リリースに関する話題を扱います。"
+"流量は非常に多く、1日にとてもたくさんのメールが流れます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_upstream.xml:443(para)
 msgid "Release notes are maintained on the OpenStack wiki:"
