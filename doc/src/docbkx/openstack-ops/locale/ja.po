@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenStack Manuals\n"
 "POT-Creation-Date: 2013-08-05 13:08+0900\n"
-"PO-Revision-Date: 2013-07-23 22:55+0900\n"
+"PO-Revision-Date: 2013-07-29 15:01+0900\n"
 "Last-Translator: Tsutomu Takekawa <takekawa@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/openstack/"
 "language/ja/)\n"
@@ -4761,7 +4761,7 @@ msgstr ""
 
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:520(glossterm)
 msgid "capability"
-msgstr "キャパシティ"
+msgstr "ケーパビリティ"
 
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:522(para)
 msgid ""
@@ -4791,7 +4791,7 @@ msgstr "capacity updater"
 
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:54(para)
 msgid "Updated description of availability zones."
-msgstr ""
+msgstr "アベイラビリティゾーンの説明を更新しました。"
 
 #: doc/src/docbkx/openstack-ops/src/bk_ops_guide.xml:541(para)
 msgid ""
@@ -5933,22 +5933,16 @@ msgstr ""
 "ジの書き込みはできません。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:372(para)
-#, fuzzy
-#| msgid ""
-#| "If you have an OpenStack Object Storage service, we recommend using this "
-#| "as a scalable place to store your images. Failing that, a file system "
-#| "with sufficient performance is the only real option - unless you do not "
-#| "need the ability to upload new images through OpenStack."
 msgid ""
 "If you have an OpenStack Object Storage service, we recommend using this as "
 "a scalable place to store your images. You can also use a file system with "
 "sufficient performance or Amazon S3 - unless you do not need the ability to "
 "upload new images through OpenStack."
 msgstr ""
-"OpenStack Object Storage サービスがあるのであれば、イメージを保存するスケーラ"
-"ブルな場所として利用することを推奨します。そうでない場合は、OpenStack を通じ"
-"て新しいイメージをアップロードする必要がない場合を除いて、充分な性能のある"
-"ファイルシステムが唯一の選択肢です。"
+"OpenStack Object Storage サービスがある場合には、イメージを保存するスケーラブ"
+"ルな場所としてこれを利用することを推奨します。また、OpenStack 経由で新しいイ"
+"メージをアップロードする必要がある場合には、他の選択肢としては、十分な性能を"
+"持ったファイルシステムや Amazon S3 があります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_cloud_controller.xml:378(title)
 #: doc/src/docbkx/openstack-ops/src/ch_ops_customize.xml:1001(title)
@@ -8439,7 +8433,7 @@ msgid ""
 msgstr ""
 "この選択肢の表は２つに分けると一番良く理解することができます。１つは、別々の "
 "Nova デプロイメントが動作します (セルとリージョン)。もう一つは、単一の Nova "
-"デプロイメントを分割するだけです。(<glossterm>アベイラビリテイゾーン</"
+"デプロイメントを分割するだけです。(<glossterm>アベイラビリティゾーン</"
 "glossterm>とホストアグリゲート)."
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:298(title)
@@ -8517,18 +8511,23 @@ msgid ""
 "You can use availability zones, host aggregates, or both to partition a nova "
 "deployment."
 msgstr ""
+"一つの nova デプロイメントを分割するのに、アベイラビリティゾーン、ホストアグ"
+"リゲート、もしくはその両方を使うことができます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:339(para)
 msgid ""
 "Availability zones are implemented through and configured in a similar way "
 "to host aggregates."
 msgstr ""
+"アベイラビリティゾーンは、ホストアグリゲートを利用して実装されており、ホスト"
+"アグリゲートと同様の方法で設定します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:341(para)
 msgid ""
 "However, you use an availability zone and a host aggregate for different "
 "reasons:"
 msgstr ""
+"しかし、アベイラビリティゾーンとホストアグリゲートは別の理由で使用します。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:344(para)
 msgid ""
@@ -8537,6 +8536,10 @@ msgid ""
 "isolation and redundancy from other availability zones, such as by using "
 "separate power supply or network equipment."
 msgstr ""
+"<emphasis role=\"bold\">アベイラビリティゾーン</emphasis>: OpenStack Compute "
+"ホストを論理グループにまとめて、（独立した電源系統やネットワーク装置を使うこ"
+"となどで）他のアベイラビリティゾーンとのある種の物理的な分離や冗長性を実現で"
+"きます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:351(para)
 msgid ""
@@ -8547,6 +8550,12 @@ msgid ""
 "servers in those racks in their own availability zone. Availability zones "
 "can also help separate different classes of hardware."
 msgstr ""
+"サーバー毎に、指定したサーバーが所属するアベイラビリティゾーンを定義しま"
+"す。一般に、アベイラビリティゾーンは共通の性質を持つサーバーの集合を識別する"
+"ために使われます。例えば、データセンターの一部のラック群がある一つの独立した"
+"電源系統につながっている場合には、これらのラック群に設定されたサーバーを専用"
+"のアベイラビリティゾーンに入れることができます。また、アベイラビリティゾーン"
+"は異なるクラスのハードウェアを分割するのにも使うことができます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:361(para)
 msgid ""
@@ -8555,25 +8564,16 @@ msgid ""
 "to ensure that their application resources are spread across disparate "
 "machines to achieve high availability in the event of hardware failure."
 msgstr ""
+"ユーザーはリソースを作成する際に、インスタンスを作成するアベイラビリティゾー"
+"ンを指定することができます。これによって、クラウドの利用者は、自分のアプリ"
+"ケーションのリソースが異なるマシンに分散して配置されることを保証でき、ハード"
+"ウェア故障が発生した場合でも高可用性を達成することができます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:37(para)
 msgid "The default OpenStack flavors are:"
 msgstr "OpenStack のデフォルトフレーバー:"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:371(para)
-#, fuzzy
-#| msgid ""
-#| "Both availability zones and host aggregates partition a single nova "
-#| "deployment. While seeming similar to configure, host aggregates and "
-#| "availability zones differ in their intended use. The former allows the "
-#| "partition of OpenStack Compute deployments into logical groups for load "
-#| "balancing and instance distribution, the latter are used to provide some "
-#| "form of physical isolation and redundancy from other availability zones "
-#| "(such as by using separate power supply or network equipment). Host "
-#| "aggregates can be regarded as a mechanism to further partitioning an "
-#| "availability zone, i.e. into multiple groups of hosts that share common "
-#| "resources like storage and network, or have a special property such as "
-#| "trusted computing hardware."
 msgid ""
 "<emphasis role=\"bold\">Host aggregate</emphasis>. Enables you to partition "
 "OpenStack Compute deployments into logical groups for load balancing and "
@@ -8583,31 +8583,24 @@ msgid ""
 "resources, such as storage and network, or have a special property, such as "
 "trusted computing hardware."
 msgstr ""
-"アベイラビリティゾーンとホストアグリゲートは、いずれも単一の Nova デプロイメ"
-"ントを分割します。設定方法は同じように見えますが、ホストアグリゲートはその使"
-"用目的の点でアベイラビリティゾーンとは異なります。ホストアグリゲートは、負荷"
-"分散とインスタンスの分散配置のために、OpenStack Compute のデプロイメントを論"
-"理グループに分割します。アベイラビリティゾーンは、(独立した電源系統やネット"
-"ワーク装置などを使って)他のアベイラビリティゾーンとの物理的な分離や冗長性を実"
-"現するために使用します。ホストアグリゲートは、アベリラビリティゾーンをさらに"
-"分割するしくみだと考えることができます。すなわち、ストレージやネットワークの"
-"ようなリソースを共有するホストや、トラステッドコンピューティングハードウェア"
-"のような特別な性質を備えたホストを複数のグループに分割するしくみです。"
+"<emphasis role=\"bold\">ホストアグリゲート</emphasis>:  負荷分散やインスタン"
+"スの分散配置のために、 OpenStack Compute のデプロイメントを論理グループに分割"
+"することができるようになります。ホストアグリゲートを使って一つのアベイラビリ"
+"ティゾーンをさらに分割することもできます。例えば、ホストアグリゲートを使うこ"
+"とで、一つのアベイラビリティゾーンを、ストレージやネットワークなどの共通のリ"
+"ソースを共有するホストのグループや、トラステッドコンピューティングハードウェ"
+"アのような特別な性質を備えたホストのグループ、に分割することができるでしょ"
+"う。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:383(para)
-#, fuzzy
-#| msgid ""
-#| "A common use of host aggregates is to provide information for use with "
-#| "the <code>nova-scheduler</code>. For example, limiting specific flavours "
-#| "or images to a subset of hosts."
 msgid ""
 "A common use of host aggregates is to provide information for use with the "
 "nova-scheduler. For example, you might use a host aggregate to group a set "
 "of hosts that share specific flavors or images."
 msgstr ""
-"ホストアグリゲートのよくある使い方は<code>nova-scheduler</code>サービスに情報"
-"を提供することです。例えば、特定のフレーバーやイメージの実行を一部のホストに"
-"制限することなどです。"
+"ホストアグリゲートのよくある使い方は nova-scheduler で利用する情報を提供する"
+"ことです。例えば、ホストアグリゲートを使って、特定のフレーバーやイメージを共"
+"有するホストの集合を作成することができます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:389(para)
 msgid ""
@@ -8616,6 +8609,10 @@ msgid ""
 "scheduler, nova-network, nova-conductor have always spanned all availability "
 "zones."
 msgstr ""
+"以前はすべてのサービスにアベイラビリティゾーンがありました。現在では nova-"
+"compute サービスだけが自分のアベイラビリティゾーンを持っています。 nova-"
+"scheduler, nova-network, nova-conductor といったサービスは常にすべてのアベイ"
+"ラビリティゾーンにまたがる形になります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:393(para)
 msgid ""
@@ -8624,20 +8621,22 @@ msgid ""
 "<placeholder-1/>The internal availability zone is hidden in euca-describe-"
 "availability_zones (non-verbose)."
 msgstr ""
+"次の操作のいずれかを実行すると、これらのサービスは内部アベイラビリティゾーン "
+"(CONF.internal_service_availability_zone) 内に表示されます。 <placeholder-1/"
+"> 内部アベイラビリティゾーンは (非冗長モードの) euca-describe-"
+"availability_zones では表示されません。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:397(para)
 msgid "nova host-list (os-hosts)"
-msgstr ""
+msgstr "nova host-list (os-hosts)"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:400(para)
 msgid "euca-describe-availability-zones verbose"
-msgstr ""
+msgstr "euca-describe-availability-zones verbose"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:404(para)
-#, fuzzy
-#| msgid "Nova-api services"
 msgid "nova-manage service list"
-msgstr "nova-api サービス"
+msgstr "nova-manage service list"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:409(para)
 msgid ""
@@ -8645,6 +8644,9 @@ msgid ""
 "default_availability_zone and is only used by the nova-api and nova-"
 "scheduler services."
 msgstr ""
+"CONF.node_availability_zone は CONF.default_availability_zone に名前が変更さ"
+"れました。このオプションは nova-api サービスと nova-scheduler サービスでのみ"
+"使用されます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:41(th)
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:171(para)
@@ -8653,7 +8655,7 @@ msgstr "名前"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:412(para)
 msgid "CONF.node_availability_zone still works but is deprecated."
-msgstr ""
+msgstr "CONF.node_availability_zone は今も機能しますが、非推奨扱いです。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:417(title)
 msgid "Scalable Hardware"
@@ -8726,16 +8728,6 @@ msgid "Disk"
 msgstr "ディスク"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:442(para)
-#, fuzzy
-#| msgid ""
-#| "The typical hardware recommended for use with OpenStack is \"commodity\". "
-#| "That is, very standard \"value-for-money\" offerings that most hardware "
-#| "vendors stock. It should be straightforward to divide your procurement "
-#| "into building blocks such as \"compute,\" \"object storage,\" and \"cloud "
-#| "controller,\" and request as many of these as desired. Alternately should "
-#| "you be unable to spend more, if you have existing servers, provided they "
-#| "meet your performance requirements and virtualization technology, these "
-#| "are quite likely to be able to support OpenStack."
 msgid ""
 "The typical hardware recommended for use with OpenStack is the standard "
 "value-for-money offerings that most hardware vendors stock. It should be "
@@ -8746,13 +8738,13 @@ msgid ""
 "and virtualization technology, these are quite likely to be able to support "
 "OpenStack."
 msgstr ""
-"OpenStack に使うのに推奨される典型的なハードウェアは「コモディティ」です。つ"
-"まり、とても標準的な「金額に見合う価値」をもった、ほとんどのハードウェアベン"
-"ダが提供するようなものです。調達を「コンピュート」や｢オブジェクトストレージ」"
-"そして「クラウドコントローラー」のような構成要素に分割し、それぞれ必要な数だ"
-"け要求するのは分かりやすい方法でしょう。これ以上費用をかけることができない場"
-"合でも、代わりに、もし既存のサーバーがあって、これらが性能や仮想化技術の要件"
-"を満たしていれば、高い確率で OpenStack を動作させられます。"
+"OpenStack に使うのに推奨される典型的なハードウェアは、ほとんどのハードウェア"
+"ベンダが提供している、「金額に見合う価値をもった（value-for-money）」とても標"
+"準的なハードウェアです。調達を「コンピュート」や「オブジェクトストレージ」そ"
+"して「クラウドコントローラー」のような構成要素に分割し、それぞれ必要な数だけ"
+"要求するのは分かりやすい方法でしょう。これ以上費用をかけることができない場合"
+"でも、代わりに、もし既存のサーバーがあって、これらが性能や仮想化技術の要件を"
+"満たしていれば、高い確率で OpenStack を動作させられます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:45(th)
 #: doc/src/docbkx/openstack-ops/src/ch_ops_user_facing.xml:199(para)
@@ -8790,8 +8782,8 @@ msgstr ""
 "コンピュートノードについては、<code>nova-scheduler</code> がコア数やメモリ量"
 "のサイジングに関する違いを吸収しますが、CPUの速度が違うことによって、ユーザー"
 "の使用感が変わることを考慮するべきです。オブジェクトストレージノードを追加す"
-"る際には、 そのノードの<glossterm>capability</glossterm> を反映する"
-"<glossterm>weight</glossterm> を指定するべきです。"
+"る際には、 そのノードの<glossterm>ケーパビリティ</glossterm> を反映する"
+"<glossterm>ウェイト</glossterm> を指定するべきです。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_arch_scaling.xml:473(para)
 msgid ""
@@ -12608,10 +12600,8 @@ msgstr ""
 "重要です。さもないと、クラスターが一貫性のない状態になってしまいます。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1071(title)
-#, fuzzy
-#| msgid "instance"
 msgid "Uninstalling"
-msgstr "インスタンス"
+msgstr "アンインストール"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1072(para)
 msgid ""
@@ -12619,22 +12609,21 @@ msgid ""
 "install systems from scratch, sometimes you do need to remove OpenStack from "
 "a system the hard way. Here's how:"
 msgstr ""
+"我々は常に、自動配備システムを使って、まっさらの状態からシステムを再インス"
+"トールすることを進めていますが、時として OpenStack を地道にシステムから削除し"
+"なければならない場合もあるでしょう。その場合には以下の手順となります。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1077(para)
-#, fuzzy
-#| msgid "To remove the package:"
 msgid "Remove all packages"
-msgstr "パッケージを削除するには、"
+msgstr "すべてのパッケージを削除する"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1078(para)
 msgid "Remove reamining files"
-msgstr ""
+msgstr "残っているファイルを削除する"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1079(para)
-#, fuzzy
-#| msgid "container database"
 msgid "Remove databases"
-msgstr "コンテナデータベース"
+msgstr "データベースを削除する"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:1081(para)
 msgid ""
@@ -12645,6 +12634,12 @@ msgid ""
 "uninstalling the database properly, refer to the manual appropriate for the "
 "product in use."
 msgstr ""
+"これらの手順はお使いのディストリビューションにより異なりますが、一般には "
+"<literal> aptitude purge ~c $package</literal> のようなパッケージマネージャー"
+"の「purge（完全削除）」コマンドを探すとよいでしょう。その後で、このガイドの中"
+"に出てきたディレクトリにある不要なファイルを探します。データベースを適切にア"
+"ンインストールする方法については、使用しているソフトウェアの適切なマニュアル"
+"を参照して下さい。"
 
 #: doc/src/docbkx/openstack-ops/src/ch_ops_maintenance.xml:110(title)
 msgid "Compute Node Failures and Maintenance"
