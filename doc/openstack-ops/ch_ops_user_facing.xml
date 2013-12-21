@@ -5,8 +5,6 @@
         <!ENTITY mdash  "&#x2014;">
         <!ENTITY hellip "&#x2026;">
         <!ENTITY plusmn "&#xB1;">
-        
-       
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -14,29 +12,23 @@
     xml:id="user_facing_operations">
 
     <title>User-facing Operations</title>
-    <para>This guide is for OpenStack operators and does not seek to
-        be an exhaustive reference for users, but as an operator it is
-        important that you have a basic understanding of how to use
-        the cloud facilities. This chapter looks at OpenStack from a
-        basic user perspective, which helps you understand your users'
-        needs and determine when you get a trouble ticket whether it
-        is a user issue or a service issue. The main concepts covered
-        are images, flavors, security groups, blocks storage and
-        instances.</para>
+    <para>This guide is for OpenStack operators and does not seek to be an exhaustive reference for
+        users, but as an operator it is important that you have a basic understanding of how to use
+        the cloud facilities. This chapter looks at OpenStack from a basic user perspective, which
+        helps you understand your users' needs and determine when you get a trouble ticket whether
+        it is a user issue or a service issue. The main concepts covered are images, flavors,
+        security groups, blocks storage, and instances.</para>
     <section xml:id="user_facing_images">
         <title>Images</title>
         <?dbhtml stop-chunking?>
-        <para>OpenStack images can often be thought of as "virtual
-            machine templates". Images can also be standard
-            installation mediums like ISO images. Essentially, they
-            contain bootable file systems which are used to launch
-            instances.</para>
+        <para>OpenStack images can often be thought of as "virtual machine templates." Images can
+            also be standard installation media like ISO images. Essentially, they contain bootable
+            file systems that are used to launch instances.</para>
         <section xml:id="add_images">
             <title>Adding Images</title>
-            <para>Several pre-made images exist and can easily be
-                imported into the Image Service. A common image to add
-                is the CirrOS image which is very small and used for
-                testing purposes. To add this image, simply do:</para>
+            <para>Several pre-made images exist and can easily be imported into the Image Service. A
+                common image to add is the CirrOS image, which is very small and used for testing
+                purposes. To add this image, simply do:</para>
             <programlisting><?db-font-size 65%?># wget https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img # glance image-create --name='cirros image' --is-public=true --container-format=bare --disk-format=qcow2 &lt; cirros-0.3.0-x86_64-disk.img</programlisting>
             <para>The <code>glance image-create</code> command
                 provides a large set of options to give your image.
@@ -57,7 +49,7 @@
                 same thing is done when using the STDIN redirection
                 such as shown in the example.</para>
             <para>Run the following command to view the properties of
-                existing images: </para>
+                existing images:</para>
             <programlisting><?db-font-size 65%?>$ glance details</programlisting>
         </section>
         <section xml:id="delete_images">
@@ -112,19 +104,14 @@
     </section>
 
     <section xml:id="flavors">
-     
         <title>Flavors</title>
 
-        <para>Virtual hardware templates are called "flavors" in
-            OpenStack, defining sizes for RAM, disk, number of cores
-            and so on. The default install provides a range of five
-            flavors. These are configurable by admin users (this too
-            is configurable and may be delegated by redefining the
-            access controls for
-                <code>compute_extension:flavormanage</code> in
-                <code>/etc/nova/policy.json</code> on the
-                <code>nova-api</code> server). To get a list of
-            available flavors on your system run:</para>
+        <para>Virtual hardware templates are called "flavors" in OpenStack, defining sizes for RAM,
+            disk, number of cores, and so on. The default install provides five flavors. These are
+            configurable by admin users (this too is configurable and may be delegated by redefining
+            the access controls for <code>compute_extension:flavormanage</code> in
+                <code>/etc/nova/policy.json</code> on the <code>nova-api</code> server). To get the
+            list of available flavors on your system, run:</para>
             <programlisting><?db-font-size 65%?>$ nova flavor-list</programlisting>
 
         <programlisting><?db-font-size 65%?>+----+-----------+-----------+------+-----------+\+-------+-\+-------------+
@@ -138,7 +125,7 @@
 +----+-----------+-----------+------+-----------+\+-------+-\+-------------+</programlisting>
         <para>The <code>nova flavor-create</code> command allows authorized users to create new
             flavors. Additional flavor manipulation commands can be shown with the command:
-                <programlisting language="bash"><?db-font-size 75%?><prompt>$</prompt> nova help | grep flavor.</programlisting>
+            <programlisting language="bash"><?db-font-size 75%?><prompt>$</prompt> nova help | grep flavor</programlisting>
         </para>
         <?hard-pagebreak?>
         <para>Flavors define a number of elements:</para>
@@ -171,8 +158,8 @@
                         <para>Name</para>
                     </td>
                     <td xmlns:db="http://docbook.org/ns/docbook">
-                        <para>a descriptive name. xx.size_name is conventional not required, though
-                            some third party tools may rely on it.</para>
+                        <para>A descriptive name, such as xx.size_name is conventional but not
+                            required, though some third-party tools may rely on it.</para>
                     </td>
                 </tr>
                 <tr>
@@ -180,7 +167,7 @@
                         <para>Memory_MB</para>
                     </td>
                     <td xmlns:db="http://docbook.org/ns/docbook">
-                        <para>Memory_MB: virtual machine memory in megabytes.</para>
+                        <para>Virtual machine memory in megabytes.</para>
                     </td>
                 </tr>
                 <tr>
@@ -189,9 +176,9 @@
                     </td>
                     <td xmlns:db="http://docbook.org/ns/docbook">
                         <para>Virtual root disk size in gigabytes. This is an ephemeral disk the
-                            base image is copied into. When booting from a persistent volume it is
-                            not used. The "0" size is a special case which uses the native base
-                            image size as the size of the ephemeral root volume.</para>
+                            base image is copied into. You don't use it when you boot from a
+                            persistent volume. The "0" size is a special case that uses the native
+                            base image size as the size of the ephemeral root volume.</para>
                     </td>
                 </tr>
                 <tr>
@@ -228,7 +215,7 @@
                         <para>Optional property allows created servers to have a different bandwidth
                             cap than that defined in the network they are attached to. This factor
                             is multiplied by the rxtx_base property of the network. Default value is
-                            1.0 (that is, the same as attached network).</para>
+                            1.0 (that is, the same as the attached network).</para>
                     </td>
                 </tr>
                 <tr>
@@ -261,15 +248,13 @@
                 modify a flavor by deleting an existing flavor and creating a new one with the same
                 name.</para>
         </simplesect>
-        
     </section>
     <?hard-pagebreak?>
     <section xml:id="security_groups">
         <?dbhtml stop-chunking?>
         <title>Security groups</title>
-        <para>One of the most common new user issues with OpenStack is
-            failing to set appropriate security group when launching
-            an instance and are then unable to contact the instance on
+        <para>A common new-user issue with OpenStack is failing to set an appropriate security group
+            when launching an instance. As a result, the user is unable to contact the instance on
             the network.</para>
         <para>Security groups are sets of IP filter rules that are
             applied to an instance's networking. They are project
@@ -318,12 +303,12 @@
 
         <programlisting><prompt>$</prompt> nova secgroup-list-rules open</programlisting>
 
-        <programlisting><?db-font-size 65%?>+-------------+-----------+---------+-----------+--------------+ 
- | IP Protocol | From Port | To Port | IP Range  | Source Group | 
- +-------------+-----------+---------+-----------+--------------+ 
- | icmp        | -1        | 255     | 0.0.0.0/0 |              | 
- | tcp         | 1         | 65535   | 0.0.0.0/0 |              | 
- | udp         | 1         | 65535   | 0.0.0.0/0 |              | 
+        <programlisting><?db-font-size 65%?>+-------------+-----------+---------+-----------+--------------+
+ | IP Protocol | From Port | To Port | IP Range  | Source Group |
+ +-------------+-----------+---------+-----------+--------------+
+ | icmp        | -1        | 255     | 0.0.0.0/0 |              |
+ | tcp         | 1         | 65535   | 0.0.0.0/0 |              |
+ | udp         | 1         | 65535   | 0.0.0.0/0 |              |
  +-------------+-----------+---------+-----------+--------------+ </programlisting>
         <para>These rules are all "allow" type rules as the default is
             deny. The first column is the IP protocol (one of icmp,
@@ -347,6 +332,9 @@
             "global_http" which is clear and reasonably concise,
             encapsulating what is allowed and from where. From the
             command line:</para>
+
+        <programlisting><?db-font-size 65%?><prompt>$</prompt> nova secgroup-create global_http "allow web traffic from the internet"</programlisting>
+
         <programlisting><?db-font-size 65%?>+-------------+-------------------------------------+
 | Name        | Description                         |
 +-------------+-------------------------------------+
@@ -389,20 +377,20 @@ $ nova secgroup-add-rule global_http tcp 80 80 0.0.0.0/0
         <para>The inverse operation is called secgroup-delete-rule,
             using the same format. Whole security groups can be
             removed with secgroup-delete.</para>
-        <para> To create security group rules for a cluster of
-            instances: </para>
+        <para>To create security group rules for a cluster of
+            instances:</para>
         <para>SourceGroups are a special dynamic way of defining the
             CIDR of allowed sources. The user specifies a SourceGroup
             (Security Group name), all the users' other Instances
             using the specified SourceGroup are selected dynamically.
             This alleviates the need for a individual rules to allow
-            each new member of the cluster.usage: </para>
+            each new member of the cluster.usage:</para>
         <para>usage: nova secgroup-add-group-rule &lt;secgroup&gt;
             &lt;source-group&gt; &lt;ip-proto&gt; &lt;from-port&gt;
             &lt;to-port&gt; </para>
         <programlisting><prompt>$</prompt> nova secgroup-add-group-rule cluster global-http tcp 22 22</programlisting>
-        <para> The "cluster" rule allows ssh access from any other
-            instance that uses the "global-http" group. </para>
+        <para>The "cluster" rule allows ssh access from any other
+            instance that uses the "global-http" group.</para>
     </section>
     <?hard-pagebreak?>
     <section xml:id="user_facing_block_storage">
@@ -477,7 +465,7 @@ Optional snapshot description. (Default=None)</programlisting>
                 volume's UUID. First try the log files on the cloud
                 controller and then try the storage node where they
                 volume was attempted to be created:</para>
-            <programlisting><?db-font-size 65%?><prompt>#</prompt> grep 903b85d0-bacc-4855-a261-10843fc2d65b /var/log/cinder/*.log </programlisting>
+            <programlisting><?db-font-size 65%?><prompt>#</prompt> grep 903b85d0-bacc-4855-a261-10843fc2d65b /var/log/cinder/*.log</programlisting>
         </section>
     </section>
     <section xml:id="instances">
@@ -529,31 +517,32 @@ Optional snapshot description. (Default=None)</programlisting>
 
             <programlisting><prompt>$</prompt> nova show test-instance</programlisting>
 
-            <programlisting><?db-font-size 55%?>+------------------------+--------------------------------------------------------------\
-| Property               | Value                                                        /
-+------------------------+--------------------------------------------------------------\
-| OS-DCF:diskConfig      | MANUAL                                                       /
-| OS-EXT-STS:power_state | 0                                                            \
-| OS-EXT-STS:task_state  | None                                                         /
-| OS-EXT-STS:vm_state    | error                                                        \
-| accessIPv4             |                                                              /
-| accessIPv6             |                                                              \
-| config_drive           |                                                              /
-| created                | 2013-03-01T19:28:24Z                                         \
-| fault                  | {u'message': u'NoValidHost', u'code': 500, u'created': u'2013/
-| flavor                 | xxl.super (11)                                               \
-| hostId                 |                                                              /
-| id                     | 940f3b2f-bd74-45ad-bee7-eb0a7318aa84                         \
-| image                  | quantal-test (65b4f432-7375-42b6-a9b8-7f654a1e676e)          /
-| key_name               | None                                                         \
-| metadata               | {}                                                           /
-| name                   | test-instance                                                \
-| security_groups        | [{u'name': u'default'}]                                      /
-| status                 | ERROR                                                        \
-| tenant_id              | 98333a1a28e746fa8c629c83a818ad57                             /
-| updated                | 2013-03-01T19:28:26Z                                         \
-| user_id                | a1ef823458d24a68955fec6f3d390019                             /
-+------------------------+--------------------------------------------------------------\   </programlisting>
+            <programlisting><?db-font-size 55%?>
++------------------------+-----------------------------------------------------\
+| Property               | Value                                               /
++------------------------+-----------------------------------------------------\
+| OS-DCF:diskConfig      | MANUAL                                              /
+| OS-EXT-STS:power_state | 0                                                   \
+| OS-EXT-STS:task_state  | None                                                /
+| OS-EXT-STS:vm_state    | error                                               \
+| accessIPv4             |                                                     /
+| accessIPv6             |                                                     \
+| config_drive           |                                                     /
+| created                | 2013-03-01T19:28:24Z                                \
+| fault                  | {u'message': u'NoValidHost', u'code': 500, u'created/
+| flavor                 | xxl.super (11)                                      \
+| hostId                 |                                                     /
+| id                     | 940f3b2f-bd74-45ad-bee7-eb0a7318aa84                \
+| image                  | quantal-test (65b4f432-7375-42b6-a9b8-7f654a1e676e) /
+| key_name               | None                                                \
+| metadata               | {}                                                  /
+| name                   | test-instance                                       \
+| security_groups        | [{u'name': u'default'}]                             /
+| status                 | ERROR                                               \
+| tenant_id              | 98333a1a28e746fa8c629c83a818ad57                    /
+| updated                | 2013-03-01T19:28:26Z                                \
+| user_id                | a1ef823458d24a68955fec6f3d390019                    /
++------------------------+-----------------------------------------------------\   </programlisting>
             <para>In this case looking at the "fault" message shows
                 NoValidHost indicating the scheduler was unable to
                 match the instance requirements.</para>
@@ -602,7 +591,7 @@ Optional snapshot description. (Default=None)</programlisting>
             <programlisting><?db-font-size 65%?><prompt>$</prompt> nova keypair-add --pub-key mykey.pub mykey</programlisting>
             <para>You must have the matching private key to access
                 instances associated with this key.</para>
-            <para> To associate a key with an instance on boot add
+            <para>To associate a key with an instance on boot add
                 --key_name mykey to your command line for
                 example:</para>
             <programlisting><?db-font-size 65%?><prompt>$</prompt> nova boot --image ubuntu-cloudimage --flavor 1 --key_name mykey</programlisting>
@@ -659,7 +648,7 @@ Optional snapshot description. (Default=None)</programlisting>
                 system and then passed in at instance creation with
                 the flag --user-data &lt;user-data-file&gt; for
                 example:</para>
-            <programlisting><?db-font-size 65%?><prompt>$</prompt> nova boot --image ubuntu-cloudimage --flavor 1 --user-data mydata.file </programlisting>
+            <programlisting><?db-font-size 65%?><prompt>$</prompt> nova boot --image ubuntu-cloudimage --flavor 1 --user-data mydata.file</programlisting>
             <para>Arbitrary local files can also be placed into the
                 instance file system at creation time using the --file
                 &lt;dst-path=src-path&gt; option. You may store up to
@@ -719,9 +708,9 @@ Optional snapshot description. (Default=None)</programlisting>
         <para>You can attach block storage to instances from the
             dashboard on the <guilabel>Volumes</guilabel> page. Click
             the <guibutton>Edit Attachments</guibutton> action next to
-            the volume you wish to attach. </para>
+            the volume you wish to attach.</para>
         <para>To perform this action from command line, run the
-            following command: </para>
+            following command:</para>
         <programlisting><prompt>$</prompt> nova volume-attach &lt;server&gt; &lt;volume&gt; </programlisting>
         <para>You can also specify block device mapping at instance
             boot time through the nova command-line client, as
@@ -807,12 +796,12 @@ Optional snapshot description. (Default=None)</programlisting>
                 xlink:href="https://bugs.launchpad.net/nova/+bug/1163566"
             >1163566</link>
             (https://bugs.launchpad.net/nova/+bug/1163566) you must
-            specify an image when booting from a volume in Horizon, 
+            specify an image when booting from a volume in Horizon,
             even though this image is not used.</para>
         <para>To boot normally from an image and attach block storage,
             map to a device other than vda.</para>
     </section>
-    <section xml:id="snapsnots">
+    <section xml:id="snapshots">
         <?dbhtml stop-chunking?>
         <title>Taking Snapshots</title>
         <para>OpenStack's snapshot mechanism allows you to create new
@@ -820,7 +809,7 @@ Optional snapshot description. (Default=None)</programlisting>
             for upgrading base images or taking a published image and
             customizing for local use. To snapshot a running instance
             to an image using the CLI:</para>
-        <programlisting><?db-font-size 65%?><prompt>$</prompt> nova image-create &lt;instance name or uuid&gt; &lt;name of new image&gt;</programlisting>
+        <programlisting><?db-font-size 65%?><prompt>#</prompt> nova image-create &lt;instance name or uuid&gt; &lt;name of new image&gt;</programlisting>
         <para>The Dashboard interface for snapshots can be confusing
             because the Images &amp; Snapshots page splits content up
             into:</para>
@@ -879,6 +868,13 @@ Optional snapshot description. (Default=None)</programlisting>
                 </tr>
             </tbody>
         </informaltable>
+        <section xml:id="live-snapshots">
+            <title>Live snapshots</title>
+            <para>Live snapshots is a feature that allows users to snapshot the running virtual
+                machines without pausing them. These snapshots are simply disk-only snapshots.
+                Snapshotting an instance can now be performed with no downtime (assuming QEMU 1.3+
+                and libvirt 1.0+ are used).</para>
+        </section>
         <section xml:id="consistent_snapshots">
             <title>Ensuring snapshots are consistent</title>
             <para>Content from Sébastien Han's <link
@@ -976,7 +972,7 @@ Optional snapshot description. (Default=None)</programlisting>
                 system with the following command, as root, inside of
                 the instance:</para>
             <programlisting><?db-font-size 65%?><prompt>#</prompt> fsfreeze -u /mnt</programlisting>
-            <para>If you want to backup the root files ystem, you
+            <para>If you want to backup the root file system, you
                 can't simply do the command above because it will
                 freeze the prompt. Instead, run the following
                 one-liner, as root, inside of the instance:</para>

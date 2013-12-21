@@ -5,8 +5,6 @@
 <!ENTITY mdash  "&#x2014;">
 <!ENTITY hellip "&#x2026;">
 <!ENTITY plusmn "&#xB1;">
-        
-       
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -54,6 +52,7 @@
             install with the Object Store enabled.</para>
 
         <procedure>
+           <!-- FIXME - needs to be updated and tested for Havana -->
             <title>To run DevStack for the stable Folsom branch on an
                 instance:</title>
 
@@ -249,19 +248,19 @@
 MYSQL_PASSWORD=devstack
 RABBIT_PASSWORD=devstack
 SERVICE_PASSWORD=devstack
-SERVICE_TOKEN=devstack 
-            
+SERVICE_TOKEN=devstack
+
 SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
-SWIFT_REPLICAS=1 
-            
+SWIFT_REPLICAS=1
+
 # Uncomment the BRANCHes below to use stable versions
-            
-            
+
+
 # unified auth system (manages accounts/tokens)
 KEYSTONE_BRANCH=stable/folsom
 # object storage
-SWIFT_BRANCH=stable/folsom 
-            
+SWIFT_BRANCH=stable/folsom
+
 disable_all_services
 enable_service key swift mysql</programlisting>
         <para>
@@ -272,27 +271,27 @@ enable_service key swift mysql</programlisting>
 MYSQL_PASSWORD=devstack
 RABBIT_PASSWORD=devstack
 SERVICE_PASSWORD=devstack
-SERVICE_TOKEN=devstack 
-            
+SERVICE_TOKEN=devstack
+
 FLAT_INTERFACE=br100
 PUBLIC_INTERFACE=eth0
-            
-VOLUME_BACKING_FILE_SIZE=20480M 
-            
-# For stable versions, look for branches named stable/[milestone]. 
-            
+
+VOLUME_BACKING_FILE_SIZE=20480M
+
+# For stable versions, look for branches named stable/[milestone].
+
 # compute service
-NOVA_BRANCH=stable/folsom 
-            
+NOVA_BRANCH=stable/folsom
+
 # volume service
-CINDER_BRANCH=stable/folsom 
-            
+CINDER_BRANCH=stable/folsom
+
 # image catalog service
-GLANCE_BRANCH=stable/folsom 
-            
+GLANCE_BRANCH=stable/folsom
+
 # unified auth system (manages accounts/tokens)
-KEYSTONE_BRANCH=stable/folsom 
-            
+KEYSTONE_BRANCH=stable/folsom
+
 # django powered web control panel for openstack
 HORIZON_BRANCH=stable/folsom</programlisting>
     </section>
@@ -318,10 +317,10 @@ HORIZON_BRANCH=stable/folsom</programlisting>
             what you really want to restrict it to is a set of IPs
             based on a whitelist.</para>
         <warning>
-            <para> This example is for illustrative purposes only. It
+            <para>This example is for illustrative purposes only. It
                 should not be used as a container IP whitelist
                 solution without further development and extensive
-                security testing. </para>
+                security testing.</para>
         </warning>
         <para>When you join the screen session that
                 <code>stack.sh</code> starts with <code>screen -r
@@ -380,7 +379,7 @@ HORIZON_BRANCH=stable/folsom</programlisting>
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-                     
+
 #    http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
@@ -390,11 +389,11 @@ HORIZON_BRANCH=stable/folsom</programlisting>
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import socket
- 
+
 from swift.common.utils import get_logger
 from swift.proxy.controllers.base import get_container_info
 from swift.common.swob import Request, Response
- 
+
 class IPWhitelistMiddleware(object):
     """
     IP Whitelist Middleware
@@ -643,7 +642,7 @@ proxy-server IP 198.51.100.12 denied access to Account=AUTH_... Container=None. 
                 <code>pipeline</code> value in the project's
                 <code>conf</code> or <code>ini</code> configuration
             files in <code>/etc/&lt;project&gt;</code> to identify
-            projects that use Paste. </para>
+            projects that use Paste.</para>
         <para>When your middleware is done, we encourage you to open
             source it and let the community know on the OpenStack
             mailing list. Perhaps others need the same functionality.
@@ -663,9 +662,9 @@ proxy-server IP 198.51.100.12 denied access to Account=AUTH_... Container=None. 
             easily plug in a new scheduler for nova. The existing
             schedulers for nova are feature full and well documented
             at <link
-                xlink:href="http://docs.openstack.org/folsom/openstack-compute/admin/content/ch_scheduling.html"
+                xlink:href="http://docs.openstack.org/trunk/config-reference/content/section_compute-scheduler.html"
                 >Scheduling</link>
-            (http://docs.openstack.org/folsom/openstack-compute/admin/content/ch_scheduling.html).
+            (http://docs.openstack.org/trunk/config-reference/content/section_compute-scheduler.html).
             However, depending on your user's use cases, the existing
             schedulers might not meet your requirements. You might
             need to create a new scheduler.</para>
@@ -709,7 +708,7 @@ proxy-server IP 198.51.100.12 denied access to Account=AUTH_... Container=None. 
         <note>
             <para>This example is for illustrative purposes only. It
                 should not be used as a scheduler for Nova without
-                further development and testing. </para>
+                further development and testing.</para>
         </note>
         <para>When you join the screen session that
                 <code>stack.sh</code> starts with <code>screen -r

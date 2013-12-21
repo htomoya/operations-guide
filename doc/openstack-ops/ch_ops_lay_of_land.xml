@@ -5,8 +5,6 @@
 <!ENTITY mdash  "&#x2014;">
 <!ENTITY hellip "&#x2026;">
 <!ENTITY plusmn "&#xB1;">
-        
-        
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -33,7 +31,7 @@
             of from the Ubuntu or Fedora packages. The clients are
             under heavy development and it is very likely at any given
             time the version of the packages distributed by your
-            operating system vendor are out of date. </para>
+            operating system vendor are out of date.</para>
         <para>The "pip" utility is used to manage package installation
             from the PyPI archive and is available in the "python-pip"
             package in most Linux distributions. Each OpenStack
@@ -62,8 +60,8 @@
                     CLI)</para>
             </listitem>
             <listitem>
-                <para>python-quantumclient
-                        (<glossterm>quantum</glossterm> CLI)</para>
+                <para>python-neutronclient
+                        (<glossterm>neutron</glossterm> CLI)</para>
             </listitem>
         </itemizedlist>
         <section xml:id="install_tools">
@@ -153,25 +151,25 @@
                 a file called <code>openrc.sh</code>, which looks
                 something like this:</para>
             <programlisting><?db-font-size 60%?>#!/bin/bash
-      
+
 # With the addition of Keystone, to use an openstack cloud you should
 # authenticate against keystone, which returns a **Token** and **Service
 # Catalog**. The catalog contains the endpoint for all services the
 # user/tenant has access to - including nova, glance, keystone, swift.
 #
-# *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0. 
+# *NOTE*: Using the 2.0 *auth api* does not mean that compute api is 2.0.
 # We use the 1.1 *compute api*
 export OS_AUTH_URL=http://203.0.113.10:5000/v2.0
-      
+
 # With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
 export OS_TENANT_ID=98333aba48e756fa8f629c83a818ad57
 export OS_TENANT_NAME="test-project"
-      
+
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
 export OS_USERNAME=test-user
-      
+
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password: "
 read -s OS_PASSWORD_INPUT
@@ -202,9 +200,10 @@ export OS_PASSWORD=$OS_PASSWORD_INPUT</programlisting>
                 and pk.pem. The <code>ec2rc.sh</code> is similar to
                 this:</para>
             <programlisting><?db-font-size 50%?>#!/bin/bash
-      
+
 NOVARC=$(readlink -f "${BASH_SOURCE:-${0}}" 2&gt;/dev/null) ||\
-NOVARC=$(python -c 'import os,sys; print os.path.abspath(os.path.realpath(sys.argv[1]))' "${BASH_SOURCE:-${0}}")
+NOVARC=$(python -c 'import os,sys; \
+print os.path.abspath(os.path.realpath(sys.argv[1]))' "${BASH_SOURCE:-${0}}")
 NOVA_KEY_DIR=${NOVARC%/*}
 export EC2_ACCESS_KEY=df7f93ec47e84ef8a347bbb3d598449a
 export EC2_SECRET_KEY=ead2fff9f8a344e489956deacd47e818
@@ -213,10 +212,12 @@ export EC2_USER_ID=42 # nova does not use user id, but bundling requires it
 export EC2_PRIVATE_KEY=${NOVA_KEY_DIR}/pk.pem
 export EC2_CERT=${NOVA_KEY_DIR}/cert.pem
 export NOVA_CERT=${NOVA_KEY_DIR}/cacert.pem
-export EUCALYPTUS_CERT=${NOVA_CERT} # euca-bundle-image seems to require this set
-      
-alias ec2-bundle-image="ec2-bundle-image --cert $EC2_CERT --privatekey $EC2_PRIVATE_KEY --user 42 --ec2cert $NOVA_CERT"
-alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY --url $S3_URL --ec2cert $NOVA_CERT"</programlisting>
+export EUCALYPTUS_CERT=${NOVA_CERT} # euca-bundle-image seems to require this
+
+alias ec2-bundle-image="ec2-bundle-image --cert $EC2_CERT --privatekey \
+$EC2_PRIVATE_KEY --user 42 --ec2cert $NOVA_CERT"
+alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s \
+$EC2_SECRET_KEY --url $S3_URL --ec2cert $NOVA_CERT"</programlisting>
             <para>To put the EC2 credentials into your environment
                 source the <code>ec2rc.sh</code> file.</para>
         </section>
@@ -240,7 +241,7 @@ alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY
                     >bug report</link>
                 (https://bugs.launchpad.net/python-novaclient/+bug/1020238)
                 which has been open, closed as invalid, and reopened
-                through a few cycles. </para>
+                through a few cycles.</para>
             <para>The issue is that under some conditions the command
                 line tools try to use a Python keyring as a credential
                 cache and, under a subset of those conditions, another
@@ -274,7 +275,7 @@ alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY
 
                 <para>The first thing you must do is authenticate with
                     the cloud using your credentials to get an
-                        <glossterm>authentication token</glossterm>. </para>
+                        <glossterm>authentication token</glossterm>.</para>
                 <para>Your credentials are a combination of username,
                     password, and tenant (project). You can extract
                     these values from the <code>openrc.sh</code>
@@ -290,9 +291,10 @@ alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY
 
                             <para>Look at your OpenStack service
                                    <glossterm>catalog</glossterm>:</para>
-                            <programlisting language="bash"><?db-font-size 55%?><prompt>$</prompt> curl -s -X POST http://203.0.113.10:35357/v2.0/tokens \
-    -d '{"auth": {"passwordCredentials": {"username":"test-user", "password":"test-password"}, "tenantName":"test-project"}}' \
-    -H "Content-type: application/json" | jq .</programlisting>
+                            <programlisting language="bash"><?db-font-size 55%?>
+<prompt>$</prompt> curl -s -X POST http://203.0.113.10:35357/v2.0/tokens \
+-d '{"auth": {"passwordCredentials": {"username":"test-user", "password":"test-password"}, "tenantName":"test-project"}}' \
+-H "Content-type: application/json" | jq .</programlisting>
                         </listitem>
                         <listitem>
                             <para>Read through the JSON response to
@@ -301,9 +303,10 @@ alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY
                             <para>To make working with subsequent
                                 requests easier, store the token in an
                                 environment variable.</para>
-                            <programlisting language="bash"><?db-font-size 55%?><prompt>$</prompt> TOKEN=`curl -s -X POST http://203.0.113.10:35357/v2.0/tokens \
-    -d '{"auth": {"passwordCredentials": {"username":"test-user", "password":"test-password"}, "tenantName":"test-project"}}' \
-    -H "Content-type: application/json" |  jq -r .access.token.id`</programlisting>
+                            <programlisting language="bash"><?db-font-size 55%?>
+<prompt>$</prompt> TOKEN=`curl -s -X POST http://203.0.113.10:35357/v2.0/tokens \
+-d '{"auth": {"passwordCredentials": {"username":"test-user", "password":"test-password"}, "tenantName":"test-project"}}' \
+-H "Content-type: application/json" |  jq -r .access.token.id`</programlisting>
                             <para>Now you can refer to your token on
                                 the command line as $TOKEN.</para>
                         </listitem>
@@ -312,9 +315,10 @@ alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s $EC2_SECRET_KEY
                                 service catalog, such as compute, and
                                 try out a request like listing
                                 instances (servers).</para>
-                            <programlisting><?db-font-size 60%?><prompt>$</prompt> curl -s \
-                                  -H "X-Auth-Token: $TOKEN" \
-                                   http://203.0.113.10:8774/v2/98333aba48e756fa8f629c83a818ad57/servers | jq .</programlisting>
+                            <programlisting><?db-font-size 60%?>
+<prompt>$</prompt> curl -s \
+-H "X-Auth-Token: $TOKEN" \
+http://203.0.113.10:8774/v2/98333aba48e756fa8f629c83a818ad57/servers | jq .</programlisting>
 
 </listitem>
                     </orderedlist>
@@ -367,10 +371,6 @@ nova-scheduler   cloud.example.com nova enabled  :-)  2013-02-25 19:32:33</progr
                 longer available, the <code>:-)</code> changes to an
                     <code>XXX</code>. This is an indication that you
                 should troubleshoot why the service is down.</para>
-            <para>If you are still using <code>nova-volume</code>
-                (this service is deprecated after the Folsom release),
-                you might also see entries for the nova-volume
-                service.</para>
             <para>If you are using Cinder, run the following command
                 to see a similar listing:</para>
 
@@ -407,22 +407,82 @@ cloud.example.com nova</programlisting>
 +-----+----------+----------+----------------------------+</programlisting>
             <para>The output above shows that there are five services
                 configured.</para>
-            <para>To see the endpoint of each service, run: </para>
+            <para>To see the endpoint of each service, run:</para>
             <programlisting><?db-font-size 60%?><prompt>$</prompt> keystone endpoint-list</programlisting>
-            <programlisting><?db-font-size 55%?>+-----+-----------------------------------------+-/+-----------------------------------------+
-| id  |            publicurl                    | \|               adminurl                  |
-+-----+-----------------------------------------+-/+-----------------------------------------+
-| ... | http://example.com:8774/v2/%(tenant_id)s| \| http://example.com:8774/v2/%(tenant_id)s|
-| ... | http://example.com:8773/services/Cloud  | /| http://example.com:8773/services/Admin  |
-| ... | http://example.com:9292/v1              | \| http://example.com:9292/v1              |
-| ... | http://example.com:5000/v2.0            | /| http://example.com:35357/v2.0           |
-| ... | http://example.com:8776/v1/%(tenant_id)s| \| http://example.com:8776/v1/%(tenant_id)s|
-+-----+-----------------------------------------+-/+-----------------------------------------+</programlisting>
-            <para>There should be a one-to-one mapping between a
+            <programlisting><?db-font-size 55%?>---+------------------------------------------+--
+   |                publicurl                 |
+---+------------------------------------------+--
+   | http://example.com:8774/v2/%(tenant_id)s |
+   |          http://example.com:9292         |
+   |        http://example.com:8000/v1        |
+   |       http://example.com:5000/v2.0       |
+---+------------------------------------------+--
+
+---+------------------------------------------+--
+   |                 adminurl                 |
+---+------------------------------------------+--
+   | http://example.com:8774/v2/%(tenant_id)s |
+   |          http://example.com:9292         |
+   |        http://example.com:8000/v1        |
+   |       http://example.com:5000/v2.0       |
+---+------------------------------------------+--</programlisting>
+            <para>This example shows two columns pulled from the larger listing.
+                There should be a one-to-one mapping between a
                     <emphasis>service</emphasis> and
-                    <emphasis>endpoint</emphasis>. Note the different
-                URLs and ports between the public URL and the admin
-                URL for some services.</para>
+                    <emphasis>endpoint</emphasis>. Note the different URLs and
+                ports between the public URL and the admin URL for some
+                services.</para>
+            <para>You can find the version of the Compute installation by using the
+                    <command>nova-manage</command> command:
+                <screen><prompt>$</prompt> <userinput>nova-manage version list</userinput></screen></para>
+        </section>
+        <section xml:id="diagnose-compute">
+            <title>Diagnose your compute nodes</title>
+            <para>You can obtain extra information about the running
+                virtual machines: their CPU usage, the memory, the disk I/O or
+                network I/O, per instance, by running the <command>nova
+                    diagnostics</command> command with a server ID:</para>
+            <screen><prompt>$</prompt> <userinput>nova diagnostics &lt;serverID&gt;</userinput></screen>
+            <para>The output of this command will vary depending on the
+                hypervisor. Example output when the hypervisor is Xen:
+                <screen><computeroutput>
++----------------+-----------------+
+|    Property    |      Value      |
++----------------+-----------------+
+| cpu0           | 4.3627          |
+| memory         | 1171088064.0000 |
+| memory_target  | 1171088064.0000 |
+| vbd_xvda_read  | 0.0             |
+| vbd_xvda_write | 0.0             |
+| vif_0_rx       | 3223.6870       |
+| vif_0_tx       | 0.0             |
+| vif_1_rx       | 104.4955        |
+| vif_1_tx       | 0.0             |
++----------------+-----------------+</computeroutput></screen>
+                While the command should work with any hypervisor that is
+                controlled through libvirt (e.g., KVM, QEMU, LXC), it has only
+                been tested with KVM. Example output when the hypervisor is
+                KVM:</para>
+            <screen><computeroutput>
++------------------+------------+
+| Property         | Value      |
++------------------+------------+
+| cpu0_time        | 2870000000 |
+| memory           | 524288     |
+| vda_errors       | -1         |
+| vda_read         | 262144     |
+| vda_read_req     | 112        |
+| vda_write        | 5606400    |
+| vda_write_req    | 376        |
+| vnet0_rx         | 63343      |
+| vnet0_rx_drop    | 0          |
+| vnet0_rx_errors  | 0          |
+| vnet0_rx_packets | 431        |
+| vnet0_tx         | 4905       |
+| vnet0_tx_drop    | 0          |
+| vnet0_tx_errors  | 0          |
+| vnet0_tx_packets | 45         |
++------------------+------------+</computeroutput></screen>
         </section>
     </section>
     <section xml:id="network">
@@ -508,7 +568,7 @@ None                             1.2.3.5 48a415e7-6f07-4d33-ad00-814e60b010ff no
             <para>Sometimes a user and a group have a one-to-one
                 mapping. This happens for standard system accounts,
                 such as cinder, glance, nova, and swift, or when only
-                one user is ever part of a group. </para>
+                one user is ever part of a group.</para>
         </note>
     </section>
     <section xml:id="running_instances">

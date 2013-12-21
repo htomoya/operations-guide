@@ -5,8 +5,6 @@
         <!ENTITY mdash  "&#x2014;">
         <!ENTITY hellip "&#x2026;">
         <!ENTITY plusmn "&#xB1;">
-        
-       
 ]>
 <chapter xmlns="http://docbook.org/ns/docbook"
     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -128,11 +126,11 @@
             framework conventions.</para>
         <para>The first step in finding the source of an error is
             typically to search for a CRITICAL, TRACE, or ERROR
-            message in the log starting at the bottom of the log file. </para>
+            message in the log starting at the bottom of the log file.</para>
         <para>An example of a CRITICAL log message, with the
             corresponding TRACE (Python traceback) immediately
             following:</para>
-        <programlisting><?db-font-size 65%?>2013-02-25 21:05:51 17409 CRITICAL cinder [-] Bad or unexpected response from the storage volume backend API: volume group 
+        <programlisting><?db-font-size 65%?>2013-02-25 21:05:51 17409 CRITICAL cinder [-] Bad or unexpected response from the storage volume backend API: volume group
  cinder-volumes doesn't exist
 2013-02-25 21:05:51 17409 TRACE cinder Traceback (most recent call last):
 2013-02-25 21:05:51 17409 TRACE cinder File "/usr/bin/cinder-volume", line 48, in &lt;module&gt;
@@ -153,13 +151,13 @@
 2013-02-25 21:05:51 17409 TRACE cinder server.start()
 2013-02-25 21:05:51 17409 TRACE cinder File "/usr/lib/python2.7/dist-packages/cinder/service.py", line 159, in start
 2013-02-25 21:05:51 17409 TRACE cinder self.manager.init_host()
-2013-02-25 21:05:51 17409 TRACE cinder File "/usr/lib/python2.7/dist-packages/cinder/volume/manager.py", line 95, 
+2013-02-25 21:05:51 17409 TRACE cinder File "/usr/lib/python2.7/dist-packages/cinder/volume/manager.py", line 95,
  in init_host
 2013-02-25 21:05:51 17409 TRACE cinder self.driver.check_for_setup_error()
-2013-02-25 21:05:51 17409 TRACE cinder File "/usr/lib/python2.7/dist-packages/cinder/volume/driver.py", line 116, 
+2013-02-25 21:05:51 17409 TRACE cinder File "/usr/lib/python2.7/dist-packages/cinder/volume/driver.py", line 116,
  in check_for_setup_error
 2013-02-25 21:05:51 17409 TRACE cinder raise exception.VolumeBackendAPIException(data=exception_message)
-2013-02-25 21:05:51 17409 TRACE cinder VolumeBackendAPIException: Bad or unexpected response from the storage volume 
+2013-02-25 21:05:51 17409 TRACE cinder VolumeBackendAPIException: Bad or unexpected response from the storage volume
  backend API: volume group cinder-volumes doesn't exist
 2013-02-25 21:05:51 17409 TRACE cinder</programlisting>
         <para>In this example, cinder-volumes failed to start and has
@@ -185,11 +183,11 @@
             instance across the service logs.</para>
         <para>Consider the following example:</para>
         <programlisting><?db-font-size 60%?>ubuntu@initial:~$ nova list
-+--------------------------------------+--------+--------+---------------------------+
-| ID                                   | Name   | Status | Networks                  |
-+--------------------------------------+--------+--------+---------------------------+
-| faf7ded8-4a46-413b-b113-f19590746ffe | cirros | ACTIVE | novanetwork=192.168.100.3 |
-+--------------------------------------+--------+--------+---------------------------+</programlisting>
++--------------------------------+--------+--------+--------------------------+
+| ID                             | Name   | Status | Networks                 |
++--------------------------------+--------+--------+--------------------------+
+| fafed8-4a46-413b-b113-f1959ffe | cirros | ACTIVE | novanetwork=192.168.100.3|
++--------------------------------------+--------+--------+--------------------+</programlisting>
         <para>Here the ID associated with the instance is
                 <code>faf7ded8-4a46-413b-b113-f19590746ffe</code>. If
             you search for this string on the cloud controller in the
@@ -320,36 +318,34 @@ syslog_log_facility=LOG_LOCAL3</programlisting>
                 dedicated to this purpose. Create a file called
                 /etc/rsyslog.d/server.conf with the following
                 contents:</para>
-            <programlisting><?db-font-size 65%?># Enable UDP 
-$ModLoad imudp 
-# Listen on 192.168.1.10 only 
+            <programlisting><?db-font-size 65%?># Enable UDP
+$ModLoad imudp
+# Listen on 192.168.1.10 only
 $UDPServerAddress 192.168.1.10
-# Port 514 
-$UDPServerRun 514  
-      
-# Create logging templates for nova
-$template NovaFile,"/var/log/rsyslog/%HOSTNAME%/nova.log" 
-$template NovaAll,"/var/log/rsyslog/nova.log"
-      
+# Port 514
+$UDPServerRun 514
 
-      
-# Log everything else to syslog.log 
+# Create logging templates for nova
+$template NovaFile,"/var/log/rsyslog/%HOSTNAME%/nova.log"
+$template NovaAll,"/var/log/rsyslog/nova.log"
+
+
+
+# Log everything else to syslog.log
 $template DynFile,"/var/log/rsyslog/%HOSTNAME%/syslog.log"
 *.* ?DynFile
-      
 
-      
+
+
 # Log various openstack components to their own individual file
-local0.* ?NovaFile 
-local0.* ?NovaAll 
+local0.* ?NovaFile
+local0.* ?NovaAll
 &amp; ~</programlisting>
-            <para>The above example configuration handles the nova
-                service only. It first configures rsyslog to act as a
-                server that runs on port 512. Next, it creates a
-                series of logging templates. Logging templates control
-                where received logs are stored. Using the example
-                above, a nova log from c01.example.com goes to the
-                following locations:</para>
+            <para>The above example configuration handles the nova service only. It first configures
+                rsyslog to act as a server that runs on port 514. Next, it creates a series of
+                logging templates. Logging templates control where received logs are stored. Using
+                the example above, a nova log from c01.example.com goes to the following
+                locations:</para>
             <itemizedlist>
                 <listitem>
                     <para>
@@ -393,7 +389,7 @@ local0.* ?NovaAll
             (https://wiki.openstack.org/wiki/SystemUsageData).</para>
         <para>To enable nova to send notifications, add the following
             to <code>nova.conf</code>:</para>
-        <programlisting><?db-font-size 75%?>notification_topics=monitor 
+        <programlisting><?db-font-size 75%?>notification_topics=monitor
 notification_driver=nova.openstack.common.notifier.rabbit_notifier</programlisting>
         <para>Once <code>nova</code> is sending notifications, install
             and configure StackTach. Since StackTach is relatively new
@@ -430,13 +426,13 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
                 ensure that the <code>nova-compute</code> process is
                 running on compute nodes, create an alert on your
                 Nagios server that looks like this:</para>
-            <programlisting><?db-font-size 75%?>define service { 
-    host_name c01.example.com 
-    check_command check_nrpe_1arg!check_nova-compute 
-    use generic-service 
-    notification_period 24x7 
-    contact_groups sysadmins 
-    service_description nova-compute 
+            <programlisting><?db-font-size 75%?>define service {
+    host_name c01.example.com
+    check_command check_nrpe_1arg!check_nova-compute
+    use generic-service
+    notification_period 24x7
+    contact_groups sysadmins
+    service_description nova-compute
 }</programlisting>
             <para>Then on the actual compute node, create the
                 following NRPE configuration:</para>
@@ -474,12 +470,12 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
             <para>For example, to monitor disk capacity on a compute
                 node with Nagios, add the following to your Nagios
                 configuration:</para>
-            <programlisting><?db-font-size 75%?>define service { 
-    host_name c01.example.com 
-    check_command check_nrpe!check_all_disks!20% 10% 
-    use generic-service 
-    contact_groups sysadmins 
-    service_description Disk 
+            <programlisting><?db-font-size 75%?>define service {
+    host_name c01.example.com
+    check_command check_nrpe!check_all_disks!20% 10%
+    use generic-service
+    contact_groups sysadmins
+    service_description Disk
 }</programlisting>
             <para>On the compute node, add the following to your NRPE
                 configuration:</para>
@@ -514,7 +510,7 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
                 default quota settings, their quota is stored in
                     <code>nova.quotas</code> table. For
                 example:</para>
-            <programlisting><?db-font-size 65%?>mysql&gt; select project_id, resource, hard_limit from quotas; 
+            <programlisting><?db-font-size 65%?>mysql&gt; select project_id, resource, hard_limit from quotas;
 +----------------------------------+-----------------------------+------------+
 | project_id                       | resource                    | hard_limit |
 +----------------------------------+-----------------------------+------------+
@@ -532,16 +528,16 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
                 of how many resources the tenant currently has in
                 use:</para>
             <programlisting><?db-font-size 65%?>mysql&gt; select project_id, resource, in_use from quota_usages where project_id like '628%';
-+----------------------------------+--------------+--------+ 
-| project_id                       | resource     | in_use | 
-+----------------------------------+--------------+--------+ 
++----------------------------------+--------------+--------+
+| project_id                       | resource     | in_use |
++----------------------------------+--------------+--------+
 | 628df59f091142399e0689a2696f5baa | instances    | 1      |
-| 628df59f091142399e0689a2696f5baa | ram          | 512    | 
-| 628df59f091142399e0689a2696f5baa | cores        | 1      | 
-| 628df59f091142399e0689a2696f5baa | floating_ips | 1      | 
-| 628df59f091142399e0689a2696f5baa | volumes      | 2      | 
-| 628df59f091142399e0689a2696f5baa | gigabytes    | 12     | 
-| 628df59f091142399e0689a2696f5baa | images       | 1      | 
+| 628df59f091142399e0689a2696f5baa | ram          | 512    |
+| 628df59f091142399e0689a2696f5baa | cores        | 1      |
+| 628df59f091142399e0689a2696f5baa | floating_ips | 1      |
+| 628df59f091142399e0689a2696f5baa | volumes      | 2      |
+| 628df59f091142399e0689a2696f5baa | gigabytes    | 12     |
+| 628df59f091142399e0689a2696f5baa | images       | 1      |
 +----------------------------------+--------------+--------+</programlisting>
             <para>By combining the resources used with the tenant's
                 quota, you can figure out a usage percentage. For
@@ -549,30 +545,31 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
                 10, then they are using 10% of their Floating IP
                 quota. You can take this procedure and turn it into a
                 formatted report:</para>
-            <programlisting><?db-font-size 65%?>+-----------------------------------+------------+-------------+---------------+ 
-| some_tenant                                                                  | 
-+-----------------------------------+------------+-------------+---------------+ 
-| Resource                          | Used       | Limit       |               | 
-+-----------------------------------+------------+-------------+---------------+ 
-| cores                             | 1          | 20          |           5 % | 
-| floating_ips                      | 1          | 10          |          10 % | 
-| gigabytes                         | 12         | 1000        |           1 % | 
-| images                            | 1          | 4           |          25 % | 
-| injected_file_content_bytes       | 0          | 10240       |           0 % | 
-| injected_file_path_bytes          | 0          | 255         |           0 % | 
-| injected_files                    | 0          | 5           |           0 % | 
-| instances                         | 1          | 10          |          10 % | 
-| key_pairs                         | 0          | 100         |           0 % | 
-| metadata_items                    | 0          | 128         |           0 % | 
-| ram                               | 512        | 51200       |           1 % | 
-| reservation_expire                | 0          | 86400       |           0 % | 
-| security_group_rules              | 0          | 20          |           0 % | 
-| security_groups                   | 0          | 10          |           0 % | 
-| volumes                           | 2          | 10          |          20 % | 
-+-----------------------------------+------------+-------------+---------------+</programlisting>
+            <programlisting><?db-font-size 65%?>
++----------------------------------+------------+-------------+---------------+
+| some_tenant                                                                 |
++-----------------------------------+------------+------------+---------------+
+| Resource                          | Used       | Limit      |               |
++-----------------------------------+------------+------------+---------------+
+| cores                             | 1          | 20         |           5 % |
+| floating_ips                      | 1          | 10         |          10 % |
+| gigabytes                         | 12         | 1000       |           1 % |
+| images                            | 1          | 4          |          25 % |
+| injected_file_content_bytes       | 0          | 10240      |           0 % |
+| injected_file_path_bytes          | 0          | 255        |           0 % |
+| injected_files                    | 0          | 5          |           0 % |
+| instances                         | 1          | 10         |          10 % |
+| key_pairs                         | 0          | 100        |           0 % |
+| metadata_items                    | 0          | 128        |           0 % |
+| ram                               | 512        | 51200      |           1 % |
+| reservation_expire                | 0          | 86400      |           0 % |
+| security_group_rules              | 0          | 20         |           0 % |
+| security_groups                   | 0          | 10         |           0 % |
+| volumes                           | 2          | 10         |          20 % |
++-----------------------------------+------------+------------+---------------+</programlisting>
             <para>The above was generated using a custom script which
                 can be found on GitHub
-                (https://github.com/cybera/novac/blob/dev/libexec/novac-quota-report). </para>
+                (https://github.com/cybera/novac/blob/dev/libexec/novac-quota-report).</para>
             <note>
                 <para>This script is specific to a certain OpenStack
                     installation and must be modified to fit your
@@ -594,14 +591,14 @@ root 24121 0.0 0.0 11688 912 pts/5 S+ 13:07 0:00 grep nova-api</programlisting>
                 disk that Image Service is storing the images on is
                 full or the S3 back-end is down. You could naturally
                 check this by doing a quick image upload:</para>
-            <programlisting><?db-font-size 75%?>#!/bin/bash 
-# 
-# assumes that resonable credentials have been stored at 
-# /root/auth 
- 
-      
-. /root/openrc 
-wget https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img  
+            <programlisting><?db-font-size 75%?>#!/bin/bash
+#
+# assumes that reasonable credentials have been stored at
+# /root/auth
+
+
+. /root/openrc
+wget https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img
 glance image-create --name='cirros image' --is-public=true --container-format=bare --disk-format=qcow2 &lt; cirros-0.3.0-x8
 6_64-disk.img</programlisting>
             <para>By taking this script and rolling it into an alert

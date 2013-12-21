@@ -4,7 +4,7 @@
 <!ENTITY ndash  "&#x2013;">
 <!ENTITY mdash  "&#x2014;">
 <!ENTITY hellip "&#x2026;">
-<!ENTITY plusmn "&#xB1;">        
+<!ENTITY plusmn "&#xB1;">
 ]>
 
 <appendix xmlns="http://docbook.org/ns/docbook"
@@ -15,7 +15,7 @@
     <para>This section contains a small selection of use cases from
         the community with more technical detail than usual. Further
         examples can be found on the <link
-            xlink:title="OpenStack Website"
+            xlink:title="OpenStack User Stories Website"
             xlink:href="https://www.openstack.org/user-stories/"
             >OpenStack Website</link>
         (https://www.openstack.org/user-stories/)</para>
@@ -56,22 +56,20 @@
             <itemizedlist>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
+                        <link
                             xlink:href="https://www.openstack.org/user-stories/nectar/"
                             >OpenStack.org Case Study</link>
                         (https://www.openstack.org/user-stories/nectar/)</para>
                 </listitem>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
-                            xlink:href="https://github.com/NeCTAR-RC/"
+                        <link xlink:href="https://github.com/NeCTAR-RC/"
                             >NeCTAR-RC GitHub</link>
                         (https://github.com/NeCTAR-RC/)</para>
                 </listitem>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
-                            xlink:href="https://www.nectar.org.au/"
+                        <link xlink:href="https://www.nectar.org.au/"
                             >NeCTAR Website</link>
                         (https://www.nectar.org.au/)</para>
                 </listitem>
@@ -84,6 +82,7 @@
             and Artificial Intelligence Lab.</para>
         <section xml:id="mit_csail_deploy">
             <title>Deployment</title>
+            <!--FIXME - update numbers and release information for 2013 -->
             <para>The CSAIL cloud is currently 64 physical nodes with
                 a total of 768 physical cores and 3,456 GB of RAM.
                 Persistent data storage is largely outside of the
@@ -93,8 +92,10 @@
                 looking to expand.</para>
             <para>The software stack is Ubuntu 12.04 LTS with
                 OpenStack Folsom from the Ubuntu Cloud Archive. KVM is
-                the hypervisor, deployed using FAI
-                (http://fai-project.org/) and Puppet for configuration
+                the hypervisor, deployed using
+                <link xlink:href="http://fai-project.org">FAI</link>
+                (http://fai-project.org/)
+                and Puppet for configuration
                 management. The FAI and Puppet combination is used lab
                 wide, not only for OpenStack. There is a single cloud
                 controller node, with the remainder of the server
@@ -113,7 +114,7 @@
 
     <section xml:id="dair">
         <title>DAIR</title>
-        <para>Who uses it: DAIR is an integrated virtual environment
+        <para>Who uses it: DAIR is an integrated virtual environment
             that leverages the CANARIE network to develop and test new
             information communication technology (ICT) and other
             digital technologies. It combines such digital
@@ -153,8 +154,7 @@
             <itemizedlist>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
-                            xlink:href="http://www.canarie.ca/en/dair-program/about"
+                        <link xlink:href="http://www.canarie.ca/en/dair-program/about"
                             >DAIR Homepage</link>
                         (http://www.canarie.ca/en/dair-program/about)</para>
                 </listitem>
@@ -181,29 +181,33 @@
                 Directory and imported into the Identity Service using
                 LDAP. CLIs are available for Nova and Euca2ools to do
                 this.</para>
-            <para>CERN is currently running around 250 Nova Compute
-                nodes with approximately 1,000 instances.</para>
+            <para>There are 3 clouds currently running at CERN, totaling
+            around 3400 Nova Compute nodes, with approximately 60,000 cores.
+            The CERN IT cloud aims to expand to 300,000 cores by 2015.
+             </para>
+            <!--FIXME - update numbers and release information for 2014 -->
         </section>
         <section xml:id="cern_resources">
             <title>Resources</title>
             <itemizedlist>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
-                            xlink:href="http://www.slideshare.net/noggin143/20121017-openstack-accelerating-science"
-                            >San Diego 2012
-                        Summit</link> (http://www.slideshare.net/noggin143/20121017-openstack-accelerating-science)</para>
+                        <link
+                            xlink:href="http://openstack-in-production.blogspot.com/2013/09/a-tale-of-3-openstack-clouds-50000.html"
+                            >OpenStack in Production: A tale of 3 OpenStack Clouds</link>
+                        (openstack-in-production.blogspot.com/2013/09/a-tale-of-3-openstack-clouds-50000.html)
+                    </para>
                 </listitem>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
+                        <link
                             xlink:href="http://cern.ch/go/N8wp">Review
                             of CERN Data Centre
                         Infrastructure</link> (http://cern.ch/go/N8wp)</para>
                 </listitem>
                 <listitem>
                     <para>
-                        <link xlink:title="OpenStack Website"
+                        <link
                             xlink:href="http://information-technology.web.cern.ch/book/cern-private-cloud-user-guide"
                             >CERN Cloud Infrastructure User
                             Guide</link> (http://information-technology.web.cern.ch/book/cern-private-cloud-user-guide)</para>
