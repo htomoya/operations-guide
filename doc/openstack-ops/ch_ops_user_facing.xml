@@ -52,6 +52,41 @@
                 existing images:</para>
             <programlisting><?db-font-size 65%?>$ glance details</programlisting>
         </section>
+        <section xml:id="sharing_images">
+            <title>Sharing Images Between Projects</title>
+            <para>In a multi-tenant cloud environment, users will sometimes want
+                to share their personal images or snapshots with other projects.
+                This can be done on the command line with the <command>glance</command> tool by
+                the owner of the image.</para>
+        <para>To share an image or snapshot with another project, do the
+            following:</para>
+            <procedure>
+                <step>
+                    <para>Obtain the UUID of the image:</para>
+                    <screen><prompt>$</prompt> <userinput>glance image-list</userinput></screen>
+                </step>
+                <step>
+                    <para>Obtain the UUID of the project with which you want to
+                        share your image. Unfortunately non-admin users are
+                        unable to use the <command>keystone</command> command to do this. The
+                        easiest solution is to either obtain the UUID from an
+                        administrator of the cloud or from a user located in the
+                        project.</para>
+                </step>
+                <step>
+                    <para>Once you have both pieces of information, run the
+                        glance command:</para>
+                    <screen><prompt>$</prompt> <userinput>glance member-create \
+                    &lt;image-uuid&gt; &lt;project-uuid&gt;</userinput></screen>
+                    <para>For example:</para>
+                    <screen><prompt>$</prompt> <userinput>glance member-create \
+                        733d1c44-a2ea-414b-aca7-69decf20d810 771ed149ef7e4b2b88665cc1c98f77ca</userinput></screen>
+                    <para>Project 771ed149ef7e4b2b88665cc1c98f77ca
+                        will now have access to image
+                        733d1c44-a2ea-414b-aca7-69decf20d810.</para>
+                </step>
+            </procedure>
+        </section>
         <section xml:id="delete_images">
             <title>Deleting Images</title>
             <para>To delete an image, just execute:</para>
@@ -108,7 +143,7 @@
 
         <para>Virtual hardware templates are called "flavors" in OpenStack, defining sizes for RAM,
             disk, number of cores, and so on. The default install provides five flavors. These are
-            configurable by admin users (this too is configurable and may be delegated by redefining
+            configurable by admin users (the rights may also be be delegated to other users by redefining
             the access controls for <code>compute_extension:flavormanage</code> in
                 <code>/etc/nova/policy.json</code> on the <code>nova-api</code> server). To get the
             list of available flavors on your system, run:</para>
@@ -128,7 +163,13 @@
             <programlisting language="bash"><?db-font-size 75%?><prompt>$</prompt> nova help | grep flavor</programlisting>
         </para>
         <?hard-pagebreak?>
-        <para>Flavors define a number of elements:</para>
+        <para>Flavors define a number of parameters, resulting in the
+        user having a choice of what type of virtual machine to run - just
+        like they would have if they were purchasing a physical server.
+        The following table contains the elements that can be set. Note
+        in particular <literal>extra_specs</literal> which can be used to
+        define free-form characteristics, giving a lot of flexibility beyond
+        just size of RAM, CPU and Disk.</para>
         <informaltable rules="all">
             <col width="25%"/>
             <col width="75%"/>
@@ -241,12 +282,41 @@
                 </tr>
             </tbody>
         </informaltable>
+        <section xml:id="private-flavors">
+            <title>Private Flavors</title>
+            <para>A user might need a custom flavor that is uniquely-tuned for a
+                project they are working on. For example, the user might require
+                128 GB of memory. If you create a new flavor as described above,
+                the user would have access to the custom flavor, but so will all
+                other tenants in your cloud. Sometimes this sharing isn't desirable. In
+                this scenario, allowing all users to have access to a flavor
+                with 128 GB of memory might cause your cloud to reach full
+                capacity very quickly. To prevent this, you can restrict access
+                to the custom flavor using the <command>nova</command> command:</para>
+            <screen><prompt>$</prompt> <userinput>nova flavor-access-add \
+&lt;flavor-id&gt; &lt;project-id&gt;</userinput></screen>
+            <para>To view a flavor's access list, do the following:</para>
+            <screen><prompt>$</prompt> <userinput>nova flavor-access-list &lt;flavor-id&gt;</userinput></screen>
+            <note>
+                <title>Best practices</title>
+                <para>Once access to a flavor has been restricted, no other
+                    projects besides the ones granted explicit access will be
+                    able to see the flavor. This includes the admin project.
+                    Make sure to add the admin project in addition to the
+                    original project.</para>
+                <para>It's also helpful to allocate a specific numeric range for
+                    custom and private flavors. On UNIX-based systems,
+                    non-system accounts usually have a UID starting at 500. A
+                    similar approach can be taken with custom flavors. This
+                    helps you easily identify what flavors are custom, private,
+                    and public for the entire cloud.</para>
+            </note>
+        </section>
         <simplesect>
             <title>How do I modify an existing flavor?</title>
-            <para>Unfortunately, OpenStack does not provide an interface for modifying flavors, only
-                for creating and deleting them. The OpenStack Dashboard simulates the ability to
-                modify a flavor by deleting an existing flavor and creating a new one with the same
-                name.</para>
+            <para>The OpenStack Dashboard simulates the ability to modify a
+                flavor by deleting an existing flavor and creating a new one
+                with the same name.</para>
         </simplesect>
     </section>
     <?hard-pagebreak?>
@@ -304,16 +374,16 @@
         <programlisting><prompt>$</prompt> nova secgroup-list-rules open</programlisting>
 
         <programlisting><?db-font-size 65%?>+-------------+-----------+---------+-----------+--------------+
- | IP Protocol | From Port | To Port | IP Range  | Source Group |
- +-------------+-----------+---------+-----------+--------------+
- | icmp        | -1        | 255     | 0.0.0.0/0 |              |
- | tcp         | 1         | 65535   | 0.0.0.0/0 |              |
- | udp         | 1         | 65535   | 0.0.0.0/0 |              |
- +-------------+-----------+---------+-----------+--------------+ </programlisting>
+| IP Protocol | From Port | To Port | IP Range  | Source Group |
++-------------+-----------+---------+-----------+--------------+
+| icmp        | -1        | 255     | 0.0.0.0/0 |              |
+| tcp         | 1         | 65535   | 0.0.0.0/0 |              |
+| udp         | 1         | 65535   | 0.0.0.0/0 |              |
++-------------+-----------+---------+-----------+--------------+ </programlisting>
         <para>These rules are all "allow" type rules as the default is
             deny. The first column is the IP protocol (one of icmp,
             tcp, or udp) the second and third columns specify the
-            affected port range. The third column specifies the IP
+            affected port range. The fourth column specifies the IP
             range in CIDR format. This example shows the full port
             range for all protocols allowed from all IPs.</para>
         <para>As noted in the previous chapter the number of rules per
@@ -641,7 +711,8 @@ Optional snapshot description. (Default=None)</programlisting>
                     xlink:href="https://help.ubuntu.com/community/CloudInit"
                     >cloudinit</link>
                 (https://help.ubuntu.com/community/CloudInit) is an
-                open source package from Ubuntu that handles early
+                open source package from Ubuntu, but available in
+                most distributions that handles early
                 initialization of a cloud instance that makes use of
                 this user data.</para>
             <para>This user-data can be put in a file on your local
@@ -681,24 +752,30 @@ Optional snapshot description. (Default=None)</programlisting>
     </section>
     <section xml:id="floating_ips">
         <title>Floating IPs</title>
-        <para>Projects have a quota controlled number of Floating IPs,
-            however these need to be allocated by a user before they
-            are available for use. To allocate a Floating IP to a
-            project there is an "Allocate IP to Project" button on the
-            "Access &amp; Security" page of the dashboard or on the
-            command line by using:</para>
-        <programlisting><prompt>$</prompt> nova floating-ip-create</programlisting>
+        <para>Where Floating IPs are configured in a deployment,
+            each project will have a limited number of Floating IPs
+            controlled by a quota. However, these need to
+            be allocated to the project from the central pool prior
+            to their use - usually by the administrator of the project.
+            To allocate a Floating IP to a project there is an
+            <guibutton>Allocate IP to Project</guibutton> button on the
+            "Access &amp; Security" page of the dashboard. The command
+            line can also be used:</para>
+        <programlisting><prompt>$</prompt>nova floating-ip-create</programlisting>
 
-        <para>Once allocated, Floating IP can be assigned to running
+        <para>Once allocated, a Floating IP can be assigned to running
             instances from the Dashboard either by selecting the
-            "Associate Floating IP" from the actions drop down next to
-            the IP on the "Access &amp; Security" page or the same
+            <guibutton>Associate Floating IP</guibutton> from the actions drop down next to
+            the IP on the <guilabel>Access &amp; Security</guilabel> page or the same
             action next to the instance you wish to associate it with
-            on the "Instances" page. The inverse action, "Dissociate
-            Floating IP", is only available from the "Access &amp;
-            Security" page and not from the Instances page.</para>
-        <para>From the command line, enter the following command to
-            complete these tasks:</para>
+            on the <guilabel>Instances</guilabel> page. The inverse action,
+            <guibutton>Dissociate Floating IP</guibutton>, is only available from the
+            <guilabel>Access &amp;
+            Security</guilabel> page and not from the
+            <guilabel>Instances</guilabel> page.</para>
+        <para>To associate or disassociate a Floating IP to a server
+            from the command line, use the following commands:
+        </para>
         <programlisting><prompt>$</prompt> nova add-floating-ip &lt;server&gt; &lt;address&gt;</programlisting>
         <programlisting><prompt>$</prompt> nova remove-floating-ip &lt;server&gt; &lt;address&gt;</programlisting>
 
@@ -990,27 +1067,29 @@ Optional snapshot description. (Default=None)</programlisting>
             related to both running and deleted instances. It has a
             bewildering array of fields, for an exhaustive list look
             at the database. These are the most useful fields for
-            operators looking to form queries.</para>
-        <para>The "deleted" field is set to "1" if the instance has
+            operators looking to form queries:</para>
+        <itemizedlist>
+        <listitem><para>The "deleted" field is set to "1" if the instance has
             been deleted and NULL if it has not been deleted this
             important for excluding deleted instances from your
-            queries.</para>
-        <para>The "uuid" field is the UUID of the instance and is used
+            queries.</para></listitem>
+        <listitem><para>The "uuid" field is the UUID of the instance and is used
             through out other tables in the database as a foreign key.
             This id is also reported in logs, the dashboard and
             command line tools to uniquely identify an
-            instance.</para>
-        <para>A collection of foreign keys are available to find
+            instance.</para></listitem>
+        <listitem><para>A collection of foreign keys are available to find
             relations to the instance. The most useful of these are
             "user_id" and "project_id" are the UUIDs of the user who
             launched the instance and the project it was launched
-            in.</para>
-        <para>The "host" field tells which compute node is hosting the
-            instance.</para>
-        <para>The "hostname" field holds the name of the instance when
+            in.</para></listitem>
+        <listitem><para>The "host" field tells which compute node is hosting the
+            instance.</para></listitem>
+        <listitem><para>The "hostname" field holds the name of the instance when
             it is launched. The "display-name" is initially the same
             as hostname but can be reset using the nova rename
-            command.</para>
+            command.</para></listitem>
+        </itemizedlist>
         <para>A number of time related fields are useful for tracking
             when state changes happened on an instance:</para>
         <itemizedlist role="compact">
@@ -1033,5 +1112,18 @@ Optional snapshot description. (Default=None)</programlisting>
                 <para>terminated_at</para>
             </listitem>
         </itemizedlist>
+    </section>
+    <section xml:id="user-facing-outro">
+        <title>Good Luck!</title>
+        <para>This section was intended as a brief introduction to
+        some of the more useful of OpenStack's thousand commands. For
+        an exhaustive list please refer to the <link
+        xlink:href="http://docs.openstack.org/user-guide-admin/content/">Admin User
+        Guide</link>, and for additional hints and tips please see
+        the <link xlink:href="http://docs.openstack.org/admin-guide-cloud/content/">Cloud Admin Guide</link>.
+        We hope your users
+        remain happy and recognise your hard work! (For hard work, turn
+        the page to the next chapter where we discuss the system-facing
+        operations: Maintenance, Failures and Debugging.)</para>
     </section>
 </chapter>

@@ -12,8 +12,7 @@
     xml:id="lay_of_the_land">
     <?dbhtml stop-chunking?>
     <title>Lay of the Land</title>
-    <para>From this point forward in the guide, we assume that you
-        have an OpenStack cloud up and running. This section helps you
+    <para>This section helps you
         set up your working environment and use it to take a look
         around your cloud.</para>
     <section xml:id="cli_tools">
@@ -28,7 +27,7 @@
             clients from the <link
                 xlink:href="https://pypi.python.org/">Python Package
                 Index</link>(PyPI) (https://pypi.python.org/) instead
-            of from the Ubuntu or Fedora packages. The clients are
+            of from the distribution packages. The clients are
             under heavy development and it is very likely at any given
             time the version of the packages distributed by your
             operating system vendor are out of date.</para>
@@ -109,7 +108,7 @@
                     <code>/etc/nova/nova.conf</code> and make queries
                 directly against the database rather than against the
                 OpenStack <glossterm>API endpoint</glossterm>s.</para>
-            <para>The existence of the <code>*-manage</code> tools is
+            <warning><para>The existence of the <code>*-manage</code> tools is
                 a legacy issue. It is a goal of the OpenStack project
                 to eventually migrate all of the remaining
                 functionality in the <code>*-manage</code> tools into
@@ -117,39 +116,32 @@
                 SSH into the <glossterm>cloud controller
                     node</glossterm> to perform some maintenance
                 operations that require one of the
-                    <code>*-manage</code> tools.</para>
+                    <code>*-manage</code> tools.</para></warning>
         </section>
         <?hard-pagebreak?>
         <section xml:id="get_creds">
             <title>Getting Credentials</title>
-            <para>You must have the appropriate credentials if you
-                wish to use the command line tools to make queries
-                against your OpenStack cloud. By far the easiest way
-                to obtain <glossterm>authentication</glossterm>
-                credentials to use with command line clients is to use
-                the horizon dashboard. From the top right navigation
-                row, select the <guilabel>Settings</guilabel> link to
-                access the user settings page where you can set your
-                language and timezone preferences for the dashboard
-                view. More importantly, this action changes the left
-                hand navigation column to include <guilabel>OpenStack
-                    API</guilabel> and <guilabel>EC2
-                    Credentials</guilabel> links, which let you to
-                generate files you can source in your shell to
-                populate the environment variables the command line
-                tools need to know where your service endpoints are as
-                well as your authentication information.</para>
-            <para>For using the OpenStack native tools follow the
-                    <guilabel>OpenStack API</guilabel> link. The top
-                section lists the URLs of your service endpoints and
-                below that is a section titled <guilabel>Download
-                    OpenStack RC File</guilabel>. For looking at the
-                cloud as an administrator, you can choose admin from
-                the drop-down menu. In this section select the project
-                you wish to get credentials for and click
-                    <guibutton>Download RC</guibutton>. This generates
-                a file called <code>openrc.sh</code>, which looks
-                something like this:</para>
+            <para>You must have the appropriate credentials if you wish to use
+                the command line tools to make queries against your OpenStack
+                cloud. By far the easiest way to obtain
+                    <glossterm>authentication</glossterm> credentials to use
+                with command line clients is to use the OpenStack Dashboard.
+                From the top right navigation row, select
+                    <guimenuitem>Project</guimenuitem>, then <guimenuitem>Access
+                    &amp; Security</guimenuitem>, then <guimenuitem>API
+                    Access</guimenuitem> to access the user settings page where
+                you can set your language and timezone preferences for the
+                dashboard view. This action displays two buttons,
+                    <guilabel>Download OpenStack RC File</guilabel> and
+                    <guilabel>Download EC2 Credentials</guilabel>, which let you
+                to generate files you can source in your shell to populate the
+                environment variables the command line tools need to know where
+                your service endpoints are as well as your authentication
+                information. The user you logged into the dashboard dictates
+                the filename for the openrc file, such as <filename>demo-openrc.sh</filename>. When logged
+                in as admin, the file is named <filename>admin-openrc.sh</filename>.</para>
+            <para>The generated file looks something like
+                this:</para>
             <programlisting><?db-font-size 60%?>#!/bin/bash
 
 # With the addition of Keystone, to use an openstack cloud you should
@@ -168,37 +160,37 @@ export OS_TENANT_NAME="test-project"
 
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
-export OS_USERNAME=test-user
+export OS_USERNAME=demo
 
 # With Keystone you pass the keystone password.
 echo "Please enter your OpenStack Password: "
 read -s OS_PASSWORD_INPUT
 export OS_PASSWORD=$OS_PASSWORD_INPUT</programlisting>
-            <note>
-                <para>This does not save your password in plain text,
-                    which is a good thing. But when you source or run
-                    the script, it prompts for your password and then
-                    stores your response in the environment variable
-                        <code>OS_PASSWORD</code>. It is important to
-                    note that this does require interactivity. It is
-                    possible to store a value directly in the script
-                    if you require a non interactive operation, but
-                    you then need to be extremely cautious with the
-                    security and permissions of this file.</para>
-            </note>
-            <para>EC2 compatibility credentials can be downloaded from
-                the "EC2 Credentials" link in the left hand navigation
-                bar, then selecting the project you want credentials
-                for and clicking "Download EC2 Credentials". This
-                generates a zip file with server x509 certificates and
-                a shell script fragment. Create a new directory in a
-                secure location as, unlike the default
-                    <code>openrc</code>, these are live credentials
-                containing all the authentication information required
-                to access your cloud identity. Extract the zip file
-                here. You should have cacert.pem, cert.pem, ec2rc.sh
-                and pk.pem. The <code>ec2rc.sh</code> is similar to
-                this:</para>
+            <warning>
+                <para>This does not save your password in plain text, which is a
+                    good thing. But when you source or run the script, it
+                    prompts for your password and then stores your response in
+                    the environment variable <code>OS_PASSWORD</code>. It is
+                    important to note that this does require interactivity. It
+                    is possible to store a value directly in the script if you
+                    require a non interactive operation, but you then need to be
+                    extremely cautious with the security and permissions of this
+                    file.</para>
+            </warning>
+            <para>EC2 compatibility credentials can be downloaded from the
+                    <guimenuitem>Project</guimenuitem>, then <guimenuitem>Access
+                    &amp; Security</guimenuitem>, then <guimenuitem>API
+                    Access</guimenuitem> to display the <guilabel>Download EC2
+                    Credentials</guilabel> button. Click the button to generate
+                a zip file with server x509 certificates and a shell script
+                fragment. Create a new directory in a secure location because
+                these are live credentials containing all the authentication
+                information required to access your cloud identity, unlike the
+                default <code>user-openrc</code>. Extract the zip file here. You
+                should have <filename>cacert.pem</filename>,
+                    <filename>cert.pem</filename>, <filename>ec2rc.sh</filename>
+                and <filename>pk.pem</filename>. The
+                    <filename>ec2rc.sh</filename> is similar to this:</para>
             <programlisting><?db-font-size 50%?>#!/bin/bash
 
 NOVARC=$(readlink -f "${BASH_SOURCE:-${0}}" 2&gt;/dev/null) ||\
@@ -218,8 +210,8 @@ alias ec2-bundle-image="ec2-bundle-image --cert $EC2_CERT --privatekey \
 $EC2_PRIVATE_KEY --user 42 --ec2cert $NOVA_CERT"
 alias ec2-upload-bundle="ec2-upload-bundle -a $EC2_ACCESS_KEY -s \
 $EC2_SECRET_KEY --url $S3_URL --ec2cert $NOVA_CERT"</programlisting>
-            <para>To put the EC2 credentials into your environment
-                source the <code>ec2rc.sh</code> file.</para>
+            <para>To put the EC2 credentials into your environment source the
+                    <code>ec2rc.sh</code> file.</para>
         </section>
         <section xml:id="cli_tricks">
             <title>Command Line Tricks and Traps</title>
@@ -232,29 +224,21 @@ $EC2_SECRET_KEY --url $S3_URL --ec2cert $NOVA_CERT"</programlisting>
                 helpful in creating custom tools written to the
                 OpenStack API.</para>
             <para><link
-                    xlink:href="https://wiki.openstack.org/wiki/KeyringSupport"
-                    >Keyring Support</link>
-                (https://wiki.openstack.org/wiki/KeyringSupport) can
-                be a source of confusion to the point that, as of the
-                time of this writing, there is a <link
-                    xlink:href="https://bugs.launchpad.net/python-novaclient/+bug/1020238"
-                    >bug report</link>
-                (https://bugs.launchpad.net/python-novaclient/+bug/1020238)
-                which has been open, closed as invalid, and reopened
-                through a few cycles.</para>
-            <para>The issue is that under some conditions the command
-                line tools try to use a Python keyring as a credential
-                cache and, under a subset of those conditions, another
-                condition can arise where the tools prompt for a
-                keyring password on each use. If you find yourself in
-                this unfortunate subset, adding the
-                    <code>--no-cache</code> flag or setting the
-                environment variable <code>OS_NO_CACHE=1</code> avoids
-                the credentials cache.</para>
+                xlink:href="https://wiki.openstack.org/wiki/KeyringSupport"
+                >Keyring Support</link>
+                (https://wiki.openstack.org/wiki/KeyringSupport)
+                enables you to securely save your OpenStack password
+                in an encrypted file.
+            </para>
+            <para>This feature is disabled by default. To enable it,
+                add the <code>--os-cache</code> flag or set the
+                environment variable <code>OS_CACHE=1</code>.</para>
             <note>
                 <para>This causes the command line tool to
                     authenticate on each and every interaction with
-                    the cloud.</para>
+                    the cloud. This can assist with working around this
+                    scenario. However, it increases the time taken to run commands
+                    and also the load on the server.</para>
             </note>
             <section xml:id="curl">
                 <title>cURL</title>
@@ -361,6 +345,7 @@ nova-compute     c02.example.com   nova enabled  :-)  2013-02-25 19:32:32
 nova-compute     c03.example.com   nova enabled  :-)  2013-02-25 19:32:36
 nova-compute     c04.example.com   nova enabled  :-)  2013-02-25 19:32:32
 nova-compute     c05.example.com   nova enabled  :-)  2013-02-25 19:32:41
+nova-conductor   cloud.example.com nova enabled  :-)  2013-02-25 19:32:40
 nova-consoleauth cloud.example.com nova enabled  :-)  2013-02-25 19:32:36
 nova-network     cloud.example.com nova enabled  :-)  2013-02-25 19:32:32
 nova-scheduler   cloud.example.com nova enabled  :-)  2013-02-25 19:32:33</programlisting>
@@ -390,48 +375,39 @@ cloud.example.com nova</programlisting>
                 see what services are available in your cloud as well
                 as what endpoints have been configured for the
                 services.</para>
-            <para>The following commands require you to have your
+            <para>The following command requires you to have your
                 shell environment configured with the proper
                 administrative variables.</para>
 
-            <programlisting><?db-font-size 60%?><prompt>$</prompt> keystone service-list</programlisting>
+            <programlisting><?db-font-size 60%?><prompt>$</prompt> keystone catalog</programlisting>
 
-            <programlisting><?db-font-size 60%?>+-----+----------+----------+----------------------------+
-| id  | name     | type     | description                |
-+-----+----------+----------+----------------------------+
-| ... | cinder   | volume   | Cinder Service             |
-| ... | glance   | image    | OpenStack Image Service    |
-| ... | nova_ec2 | ec2      | EC2 Service                |
-| ... | keystone | identity | OpenStack Identity Service |
-| ... | nova     | compute  | OpenStack Compute Service  |
-+-----+----------+----------+----------------------------+</programlisting>
-            <para>The output above shows that there are five services
-                configured.</para>
-            <para>To see the endpoint of each service, run:</para>
-            <programlisting><?db-font-size 60%?><prompt>$</prompt> keystone endpoint-list</programlisting>
-            <programlisting><?db-font-size 55%?>---+------------------------------------------+--
-   |                publicurl                 |
----+------------------------------------------+--
-   | http://example.com:8774/v2/%(tenant_id)s |
-   |          http://example.com:9292         |
-   |        http://example.com:8000/v1        |
-   |       http://example.com:5000/v2.0       |
----+------------------------------------------+--
+            <programlisting><?db-font-size 60%?>Service: image
++-------------+----------------------------------------+
+|   Property  |                 Value                  |
++-------------+----------------------------------------+
+|   adminURL  | http://cloud.internal.example.com:9292 |
+| internalURL | http://cloud.example.com:9292          |
+|  publicURL  | http://cloud.example.com:9292          |
+|    region   |               RegionOne                |
++-------------+----------------------------------------+
 
----+------------------------------------------+--
-   |                 adminurl                 |
----+------------------------------------------+--
-   | http://example.com:8774/v2/%(tenant_id)s |
-   |          http://example.com:9292         |
-   |        http://example.com:8000/v1        |
-   |       http://example.com:5000/v2.0       |
----+------------------------------------------+--</programlisting>
-            <para>This example shows two columns pulled from the larger listing.
-                There should be a one-to-one mapping between a
-                    <emphasis>service</emphasis> and
-                    <emphasis>endpoint</emphasis>. Note the different URLs and
-                ports between the public URL and the admin URL for some
-                services.</para>
+Service: identity
++-------------+----------------------------------------------+
+|   Property  |                   Value                      |
++-------------+----------------------------------------------+
+|   adminURL  | http://cloud.internal.example.com:35357/v2.0 |
+| internalURL | http://cloud.example.com:5000/v2.0           |
+|  publicURL  | http://cloud.example.com:5000/v2.0           |
+|    region   |                 RegionOne                    |
++-------------+----------------------------------------------+</programlisting>
+            <para>The output above has been truncated to show only two
+                services. You will see one service block for each
+                service that your cloud provides. Note how the
+                endpoint domain can be different depending on the
+                endpoint type. Different endpoint domains per type are
+                not required, but can be done for different reasons
+                such as endpoint privacy or network traffic
+                segregation.</para>
             <para>You can find the version of the Compute installation by using the
                     <command>nova-manage</command> command:
                 <screen><prompt>$</prompt> <userinput>nova-manage version list</userinput></screen></para>
@@ -444,7 +420,9 @@ cloud.example.com nova</programlisting>
                     diagnostics</command> command with a server ID:</para>
             <screen><prompt>$</prompt> <userinput>nova diagnostics &lt;serverID&gt;</userinput></screen>
             <para>The output of this command will vary depending on the
-                hypervisor. Example output when the hypervisor is Xen:
+                hypervisor, as they support different attributes. The following
+                demonstrates the difference between the two most popular hypervisors.
+                 Example output when the hypervisor is Xen:
                 <screen><computeroutput>
 +----------------+-----------------+
 |    Property    |      Value      |
